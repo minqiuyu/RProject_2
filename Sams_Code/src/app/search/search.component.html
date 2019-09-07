@@ -1,0 +1,8 @@
+<div class="container-fluid col-lg-6">
+
+<form (ngSubmit)="searchForProfile()">
+    <input type="text" [(ngModel)] = "searchTerm" name="profile-search" class="form-control" placeholder="Search here">
+    <input type="submit" class="form-control btn btn-primary col-lg-3"> 
+</form>
+<app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
+</div>
