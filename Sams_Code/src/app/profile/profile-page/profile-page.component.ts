@@ -51,6 +51,10 @@ export class ProfilePageComponent implements OnInit {
     // console.log("proService: " + JSON.stringify(this.proService.getProfiles()))
     this.fetchProfile();
     this.fetchPosts();
+    if(this.posts == undefined){
+      this.postServ.addFakePosts();
+      this.posts = this.postServ.getPosts();
+    }
     // console.log('NgOnInit inside profile-page: ' + this.route.snapshot.params['username'])
     // this.profile = new Profile(this.route.snapshot.params['params'])
     // this.profile = new Profile();

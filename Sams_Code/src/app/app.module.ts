@@ -18,6 +18,7 @@ import { AuthService } from './profile/auth.service';
 import { AuthGuard } from './profile/auth-guard.service';
 import { PostService } from './profile/profile-page/post/post.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.
     LoginComponent,
     ProfilePageComponent,
     PostComponent,
-    NewPostComponent
+    NewPostComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

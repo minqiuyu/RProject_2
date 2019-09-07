@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
 import { AuthGuard } from './profile/auth-guard.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: 'search', 
   canActivate: [AuthGuard],
    component: SearchComponent},
-  {path: '', component: ProfileListComponent},
+  {path: '', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
