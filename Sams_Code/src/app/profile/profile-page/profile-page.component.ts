@@ -50,7 +50,7 @@ export class ProfilePageComponent implements OnInit {
     this.profiles = this.proService.getProfiles();
     // console.log("proService: " + JSON.stringify(this.proService.getProfiles()))
     this.fetchProfile();
-    this.fetchPosts();
+    // this.fetchPosts();
     if(this.posts == undefined){
       this.postServ.addFakePosts();
       this.posts = this.postServ.getPosts();

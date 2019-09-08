@@ -9,6 +9,7 @@ import { ProfilePageComponent } from './profile/profile-page/profile-page.compon
 import { AuthGuard } from './profile/auth-guard.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
+import { MyProfileComponent } from './profile/my-profile/my-profile.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
    component: NewPostComponent},
   {path: 'myprofile', 
   // canActivate: [AuthGuard],
-  component: ProfilePageComponent},
+  component: MyProfileComponent},
   {path: 'profiles', 
   // canActivate: [AuthGuard],
   component: ProfileListComponent, children: [{path: ":username", component: ProfilePageComponent},{path:"*", component: PageNotFoundComponent}]},

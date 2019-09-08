@@ -3,7 +3,9 @@
     <li> This is a reactive form, configured in the .ts file differently from the usual forms we make.</li>
     <li> There are still inputs to add for this page.</li>
 </div>
-<div class="col-lg-8">
+<div class="container-fluid">
+
+<div class="col-lg-8 form-container">
     <form [formGroup]='registerForm' (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="">Username</label>
@@ -44,5 +46,6 @@
             </div> -->
                 <input type="submit" class='btn btn-primary' [disabled]="registerForm.invalid">
     </form>
+</div>
 
 </div>

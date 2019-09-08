@@ -5,7 +5,7 @@
       </div>    
             <ul class="nav nav-tabs mr-auto">
                 <!-- <li class="active nav-item nav-link" > -->
-                    <li role="presentation" class="nav-item"> <a class="nav-link" routerLink="/register"
+                    <li *ngIf="!loggedIn"role="presentation" class="nav-item"> <a class="nav-link" routerLink="/register"
                     routerLinkActive="active"
                     routerLinkActiveOptions="{exact: true}">Register</a></li> 
                     <li class="nav-item" *ngIf="loggedIn"><a routerLink="/search"
