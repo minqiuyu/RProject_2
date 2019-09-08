@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Profile } from '../profile/profile.model';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +25,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     console.log(this.registerForm);
+    let profile: Profile = new Profile(this.registerForm.value.username);
+    alert("New partial profile added! " + JSON.stringify(profile));
+    this.registerForm.reset();
   }
 
   onAddHobby(){
