@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-post',
@@ -8,7 +9,9 @@ import { PostService } from '../post.service';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
+  @ViewChild('newPostForm', {static: true}) newPostForm: NgForm;
   post: Post;
+  // newPostForm: FormGroup;
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -22,5 +25,6 @@ export class NewPostComponent implements OnInit {
     this.postService.addFakePosts();
     this.postService.getPosts().push(this.post);
     console.log(this.postService.getPosts())
+    this.newPostForm.reset();
   }
 }

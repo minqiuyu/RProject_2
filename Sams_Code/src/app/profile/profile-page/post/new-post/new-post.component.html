@@ -1,7 +1,10 @@
+<div class="jumbotron">
+    This component uses a template driven form.
+</div>
 <div class="col-lg-6">
 
     <form class="form" (ngSubmit)="setPost(postTitle,postBody)"  
-    
+    #newPostForm="ngForm"
     >
     <!-- #postForm = "ngForm" -->
     <input 

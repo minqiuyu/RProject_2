@@ -1,8 +1,10 @@
     <div class="container-fluid col-lg-12">
-    
+        <div class="jumbotron">
+            This is a template driven form.
+        </div>
         <div class="row">
 
-            <div class="col-lg-6">
+            <div class="col-lg-8 form-container">
                 <form (ngSubmit)="searchForProfile()" #searchForm="ngForm">
                     <select #searchby="ngModel" name="searchBy" id="" [(ngModel)]= "searchBy" required ngNativeValidate>
                         <option value="" selected disabled hidden>Choose an option</option>
@@ -22,14 +24,14 @@
                 <br>
                 
 
-            </div>
-            
-            <div class="col-lg-6" *ngIf="!noneFound">
-                <app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
                 
-            </div>
-            <div class="col-lg-6" *ngIf="noneFound">
-                No profiles found.
+                <div *ngIf="!noneFound">
+                    <app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
+                    
+                </div>
+                <div class="col-lg-6" *ngIf="noneFound">
+                    No profiles found.
+                </div>
             </div>
         </div>
     </div>
