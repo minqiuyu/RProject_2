@@ -1,5 +1,15 @@
 <div class="container-fluid col-lg-8">
-    <div class="jumbotron"> Hello, please login below</div>
+    <div class="jumbotron"> Hello, please note:
+
+       <li>
+            Because this app is under-development, just click the submit button to see the navbar.
+         
+    </li> 
+    <li>
+            Auth-guards are currently commented, so you can also type directly into the URL to navigate.
+        
+    </li>   
+    </div>
     <form action="" (ngSubmit)="onLogin(username,password)">
         <div class="form-group col-lg-6">
             <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="username" required/>
