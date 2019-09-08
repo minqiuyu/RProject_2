@@ -1,3 +1,17 @@
 <div class="jumbotron">
     Register below (click on login in the navbar to continue without registering)
 </div>
+<div class="col-lg-8">
+    <form >
+            <div class="radio" *ngFor="let gender of genders">
+                    <label for="">
+                        <input type="radio"
+                        name="gender"
+                        ngModel
+                        [value]="gender">
+                        {{ gender }}
+                    </label>
+                </div>
+    </form>
+
+</div>

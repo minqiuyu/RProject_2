@@ -13,4 +13,8 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {
   }
 
+  setPost(title: string, body: string){
+    this.post = new Post(1,'Sam',title,body);
+    console.log(JSON.stringify(this.post) + " is post inside new post")
+  }
 }

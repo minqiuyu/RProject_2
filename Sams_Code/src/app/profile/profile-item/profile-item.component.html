@@ -1,5 +1,8 @@
 <hr>
 <br>
+<div *ngIf="!profile" class="col-lg-6">
+    No profile found.
+</div>
 <div class="card col-lg-12" (click)="navigateTo(profile.username)">
     <div class="card-body row">
     <div class="col-lg-4">

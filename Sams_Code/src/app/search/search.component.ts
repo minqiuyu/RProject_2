@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProfilesService } from '../profile/profiles.service';
 import { Profile } from '../profile/profile.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -8,17 +9,16 @@ import { Profile } from '../profile/profile.model';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('searchForm', {static: true}) searchForm: NgForm;
   searchBy: any;
   searchTerm: string; 
   profiles: Profile[];
-  foundProfiles: Profile[] = []
+  foundProfiles: Profile[];
   constructor(private proService: ProfilesService) { }
-  searchForProfile(){
-    console.log("Search term entered: " + this.searchTerm)
-    console.log("Search by is " + this.searchBy)
+  searchForProfile(f){
+    console.log(this.searchForm);
     this.foundProfiles = []
     for(let p of this.profiles){
-      // console.log("Looping through profiles " + p.getUsername())
      switch(this.searchBy){
        case "username":
          if(p.getUsername().toLowerCase().includes(this.searchTerm.toLowerCase())){
