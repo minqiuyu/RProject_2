@@ -22,17 +22,25 @@
                 </div> -->
                 <label for=""> Gender
                     </label>
-            <div
-            class="radio" *ngFor="let gender of genders">
-                   
-
+            <div class="radio" *ngFor="let gender of genders">
                         <input type="radio"
-            formControlName='gender'
                         name="gender"
+            formControlName='gender'
                         [value]="gender">
                         {{ gender }}
                 </div>
-            <input type="submit" class='btn btn-primary' [disabled]="registerForm.invalid">
+                <!-- <div [formArrayName]='hobbies'>
+                    <h4>Add some of your hobbies</h4>
+                    <button class="btn btn-success" (click)="onAddHobby()">
+                        Add hobby
+                    </button>
+                    <div class="form-group"
+                    *ngFor="let hobbyControl of registerForm.get('hobbies').controls; let i = index">
+                    <input type="text" class="form-control" [formControlName]="i">
+                    
+                </div>
+            </div> -->
+                <input type="submit" class='btn btn-primary' [disabled]="registerForm.invalid">
     </form>
 
 </div>
