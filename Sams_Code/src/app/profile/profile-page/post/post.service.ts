@@ -26,8 +26,8 @@ export class PostService {
 
   addFakePosts(){
     this.posts = [
-      {title: "Awesome post",
-      description: "Awesome post desc"},
+      {title: "Hello from the post service :)",
+      description: "Hello from the post service :)"},
       {title: "Awesome post",
       description: "Awesome post desc"},
       {title: "Awesome post",
