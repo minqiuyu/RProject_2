@@ -1,16 +1,26 @@
-<div class="container-fluid col-lg-6">
+    <div class="container-fluid col-lg-12">
+    
+        <div class="row">
 
-<form (ngSubmit)="searchForProfile()">
-    <select name="searchBy" id="" [(ngModel)]= "searchBy" required>
-        <option value="username">username</option>
-        <option value="email">email</option>
-        <option value="firstName">first name</option>
-        <option value="lastName"> last name</option>
+            <div class="col-lg-6">
+                <form (ngSubmit)="searchForProfile()">
+                    <select name="searchBy" id="" [(ngModel)]= "searchBy" required>
+                        <option value="username">username</option>
+                        <option value="email">email</option>
+                        <option value="firstName">first name</option>
+                        <option value="lastName"> last name</option>
+                        
+                        
+                    </select>
+                    <input type="text" [(ngModel)] = "searchTerm" name="profile-search" class="form-control" placeholder="Search here" required aria-required="true">
+                    <input type="submit" class="form-control btn btn-primary col-lg-3"> 
+                </form>
+                
 
-
-    </select>
-    <input type="text" [(ngModel)] = "searchTerm" name="profile-search" class="form-control" placeholder="Search here" required aria-required="true">
-    <input type="submit" class="form-control btn btn-primary col-lg-3"> 
-</form>
-<app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
-</div>
+            </div>
+            <div class="col-lg-6">
+                <app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
+                
+            </div>
+        </div>
+    </div>
