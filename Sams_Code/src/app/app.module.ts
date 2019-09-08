@@ -11,7 +11,7 @@ import { ProfileItemComponent } from './profile/profile-item/profile-item.compon
 import { LoginComponent } from './login/login.component';
 import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './profile/profile-page/post/post.component';
 import { ProfilesService } from './profile/profiles.service';
 import { AuthService } from './profile/auth.service';
@@ -19,7 +19,6 @@ import { AuthGuard } from './profile/auth-guard.service';
 import { PostService } from './profile/profile-page/post/post.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
-import { AddReimbursementComponent } from './add-reimbursement/add-reimbursement.component';
 
 
 @NgModule({
@@ -35,13 +34,13 @@ import { AddReimbursementComponent } from './add-reimbursement/add-reimbursement
     PostComponent,
     NewPostComponent,
     RegisterComponent,
-    AddReimbursementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProfilesService, AuthService, AuthGuard, PostService],
   bootstrap: [AppComponent]

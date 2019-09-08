@@ -1,5 +1,17 @@
-<form action="" class="form">
-    <input type="text" name='post-title' class="form-control" placeholder='post-title'>
-    <input type="text" name='post-body' class='form-control' placeholder='write post here'>
-    <input type="submit" class="btn btn-success">
+<div class="col-lg-6">
+
+    <form class="form"  
+    
+    >
+    <!-- #postForm = "ngForm" -->
+    <input 
+    #title="ngModel"
+    type="text" name='post-title' class="form-control" placeholder='post-title' [(ngModel)]="postTitle" required>
+    <div class="alert alert-danger" [hidden]="title.pristine || title.valid">Post title is mandatory</div>
+    <input  
+    #body="ngModel"
+    type="text" name='post-body' class='form-control' placeholder='write post here' [(ngModel)]="postBody" required>
+    <div class="alert alert-danger" [hidden]="body.pristine || body.valid"> Posts must have a body </div>
+    <input type="submit" class="btn btn-success" [disabled]="title.invalid || title.pristine || body.invalid || body.pristine">
 </form>
+</div>

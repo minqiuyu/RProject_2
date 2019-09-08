@@ -13,7 +13,6 @@
                         
                         
                     </select>
-                    {{searchby.className}}
                     <div class="alert alert-danger" [hidden]="searchby.valid || searchby.pristine">Please select an option</div>
                     <input type="text" [(ngModel)] = "searchTerm" name="profile-search" class="form-control" placeholder="Search here"  #name="ngModel" required>
                     <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Field is required</div>
