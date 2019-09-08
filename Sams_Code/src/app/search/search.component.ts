@@ -14,7 +14,21 @@ export class SearchComponent implements OnInit {
   searchTerm: string; 
   profiles: Profile[];
   foundProfiles: Profile[];
+  noneFound: boolean;
   constructor(private proService: ProfilesService) { }
+
+  noProfilesFound(){
+    if(this.foundProfiles=== undefined || this.foundProfiles.length === 0){
+      this.noneFound = true;
+      console.log(this.noneFound + " that none  were found.")
+    }
+    else {
+      this.noneFound = false;
+      console.log(this.noneFound + " that none  were found.")
+      console.log(this.foundProfiles==[])
+
+    }
+  }
   searchForProfile(f){
     console.log(this.searchForm);
     this.foundProfiles = []
@@ -42,6 +56,9 @@ export class SearchComponent implements OnInit {
         break;
      }
       }
+
+      this.noProfilesFound();
+      this.searchForm.reset();
   }
   ngOnInit() {
     this.profiles = this.proService.getProfiles();

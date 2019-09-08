@@ -24,10 +24,12 @@
 
             </div>
             
-            <div class="col-lg-6">
-                <!-- <div *ngIf="!foundProfiles"></div> -->
+            <div class="col-lg-6" *ngIf="!noneFound">
                 <app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
                 
+            </div>
+            <div class="col-lg-6" *ngIf="noneFound">
+                No profiles found.
             </div>
         </div>
     </div>
