@@ -1,8 +1,12 @@
 import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class AuthService {
     loggedIn = false;
-    loggingIn = new EventEmitter<boolean>();
+
+    loggingIn = new Subject<boolean>();
+
+    // loggingIn = new EventEmitter<boolean>();
 
     isAuthenticated(){
         const promise = new Promise(
@@ -16,11 +20,11 @@ export class AuthService {
     }
     login(){
         this.loggedIn = true;
-        this.loggingIn.emit(true);
+        this.loggingIn.next(true);
     }
 
     logout(){
         this.loggedIn = false;
-        this.loggingIn.emit(false);
+        this.loggingIn.next(false);
     }
 }
