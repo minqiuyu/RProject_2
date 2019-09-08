@@ -51,7 +51,7 @@ export class ProfilesService {
     // body.set('password', password);
     let body = `username=${username}&password=${password}`;
     console.log("sendLoginCreds fired from profile service. Username and password are " + username)
-    return this.httpServ.post<any>(this._loginUrl, JSON.stringify(body), this.httpOptions)
+    return this.httpServ.post<any>(this._loginUrl, body, this.httpOptions)
     .pipe(
       // map (res => res as any)
       catchError(this.handleError)

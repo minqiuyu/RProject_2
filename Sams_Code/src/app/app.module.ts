@@ -19,6 +19,7 @@ import { AuthGuard } from './profile/auth-guard.service';
 import { PostService } from './profile/profile-page/post/post.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
+import { AddReimbursementComponent } from './add-reimbursement/add-reimbursement.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     ProfilePageComponent,
     PostComponent,
     NewPostComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddReimbursementComponent
   ],
   imports: [
     BrowserModule,

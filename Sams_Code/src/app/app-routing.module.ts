@@ -9,21 +9,23 @@ import { ProfilePageComponent } from './profile/profile-page/profile-page.compon
 import { AuthGuard } from './profile/auth-guard.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
+import { AddReimbursementComponent } from './add-reimbursement/add-reimbursement.component';
 
 
 const routes: Routes = [
 
   // {path: 'profile', component: ProfilePageComponent, children: [{path: ":username", component:ProfilePageComponent}]},
+  {path:'reimb', component: AddReimbursementComponent},
   {path: 'newpost', canActivate: [AuthGuard], component: NewPostComponent},
   {path: 'myprofile', 
   canActivate: [AuthGuard],
   component: ProfilePageComponent},
   {path: 'profiles', 
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   component: ProfileListComponent, children: [{path: ":username", component: ProfilePageComponent},{path:":*", component: PageNotFoundComponent}]},
   {path: 'login', component: LoginComponent},
   {path: 'search', 
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
    component: SearchComponent},
   {path: '', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
