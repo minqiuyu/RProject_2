@@ -8,21 +8,40 @@ import { Profile } from '../profile/profile.model';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  searchBy: any;
   searchTerm: string; 
   profiles: Profile[];
   foundProfiles: Profile[] = []
   constructor(private proService: ProfilesService) { }
   searchForProfile(){
     console.log("Search term entered: " + this.searchTerm)
+    console.log("Search by is " + this.searchBy)
     this.foundProfiles = []
     for(let p of this.profiles){
-      console.log("Looping through profiles " + p.getUsername())
-      if(p.getUsername().includes(this.searchTerm)){
-        // console.lo
-        this.foundProfiles.push(p)
+      // console.log("Looping through profiles " + p.getUsername())
+     switch(this.searchBy){
+       case "username":
+         if(p.getUsername().toLowerCase().includes(this.searchTerm.toLowerCase())){
+           this.foundProfiles.push(p)
+         }
+         break;
+      case "email":
+          if(p.getEmail().toLowerCase().includes(this.searchTerm.toLowerCase())){
+            this.foundProfiles.push(p)
+          }
+        break;
+      case "firstName":
+          if(p.getFirstName().toLowerCase().includes(this.searchTerm.toLowerCase())){
+            this.foundProfiles.push(p)
+          }
+        break;
+      case "lastName":
+          if(p.getLastName().toLowerCase().includes(this.searchTerm.toLowerCase())){
+            this.foundProfiles.push(p)
+          }
+        break;
+     }
       }
-    }
-    console.log("Found profiles " + JSON.stringify(this.foundProfiles))
   }
   ngOnInit() {
     this.profiles = this.proService.getProfiles();

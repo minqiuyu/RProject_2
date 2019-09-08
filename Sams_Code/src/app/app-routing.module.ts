@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'search', 
   canActivate: [AuthGuard],
    component: SearchComponent},
-  {path: '', component: RegisterComponent},
+  {path: '', component: LoginComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

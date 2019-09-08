@@ -60,7 +60,7 @@ export class ProfilesService {
   private profiles: Profile[] = [
     new Profile("Luc","Lucnel", "Nordelus", "luc@luc.com","https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
     new Profile("Niro", "Niroj", "Nanganathan", "nn@nn.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
-    new Profile("Samwise", "Sam", "Jones", "swise@samwise.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
+    new Profile("Samwise", "Sam", "Jones", "lol@samwise.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
     new Profile("Jimmy", "Minqiu","Yu", "jyu@jyu.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png")
   ]
   
