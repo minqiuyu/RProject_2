@@ -1,6 +1,5 @@
-<div class="container-fluid col-lg-8">
+<div class="container-fluid col-lg-12">
     <div class="jumbotron"> Hello, please note:
-
        <li>
             Because this app is under-development, just click the submit button to see the navbar.
          
@@ -10,10 +9,12 @@
         
     </li>   
     </div>
-    <form class="form-container col-lg-6" (ngSubmit)="onLogin(username,password)">
+    <form class="form-container col-lg-10" (ngSubmit)="onLogin(username,password)">
         <div class="form-group">
             <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="username" required/>
+            <br>
             <input type="text" [(ngModel)]="password" name="password" class="form-control" placeholder="password" required/>
+            <br>
             
             <input type="submit" class="form-control btn btn-primary col-lg-3"/> 
         </div>

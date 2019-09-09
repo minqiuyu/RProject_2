@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormGroup, NgForm, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-post',
@@ -9,12 +9,17 @@ import { FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  @ViewChild('newPostForm', {static: true}) newPostForm: NgForm;
+  // @ViewChild('newPostForm', {static: true}) newPostForm: NgForm;
   post: Post;
-  // newPostForm: FormGroup;
+  newPostForm: FormGroup;
   constructor(private postService: PostService) { }
-
+  
   ngOnInit() {
+    this.newPostForm = new FormGroup({
+      'postTitle': new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      'postBody': new FormControl(null, Validators.required)
+    });
+
 
   }
 

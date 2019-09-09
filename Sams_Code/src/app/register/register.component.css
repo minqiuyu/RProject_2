@@ -1,3 +1,6 @@
 .form-container {
     display:inline-block;
 }
+.help-block {
+    height:100px;
+}

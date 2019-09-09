@@ -10,4 +10,9 @@ form >input{
 input {
     display:inline-block;
 }
-
+app-landingnav {
+    display: inline-block;
+}
+#landing-container{
+    text-align: center;
+}

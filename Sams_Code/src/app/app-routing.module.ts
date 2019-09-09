@@ -10,11 +10,13 @@ import { AuthGuard } from './profile/auth-guard.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
 import { MyProfileComponent } from './profile/my-profile/my-profile.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 const routes: Routes = [
 
   // {path: 'profile', component: ProfilePageComponent, children: [{path: ":username", component:ProfilePageComponent}]},
+  {path: 'feed', component: FeedComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'newpost',
    canActivate: [AuthGuard], 

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule, MatProgressBarModule } from '@angular/material';
+// import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
@@ -20,6 +22,8 @@ import { PostService } from './profile/profile-page/post/post.service';
 import { NewPostComponent } from './profile/profile-page/post/new-post/new-post.component';
 import { RegisterComponent } from './register/register.component';
 import { MyProfileComponent } from './profile/my-profile/my-profile.component';
+import { LandingnavComponent } from './landingnav/landingnav.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
@@ -36,13 +40,19 @@ import { MyProfileComponent } from './profile/my-profile/my-profile.component';
     NewPostComponent,
     RegisterComponent,
     MyProfileComponent,
+    LandingnavComponent,
+    FeedComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
+
   ],
   providers: [ProfilesService, AuthService, AuthGuard, PostService],
   bootstrap: [AppComponent]

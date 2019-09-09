@@ -1,0 +1,24 @@
+mat-spinner {
+    display:inline-block;
+}
+.center {
+    /* position: relative;
+    top: 50%;
+    transform: translateY(-50%) */
+    /* @include vertical-align(); */
+    margin-top: 500px;
+}
+
+.container-fluid {
+    /* -webkit-transform-style: preserve-3d */
+    margin-top: 200px;
+
+}
+
+/* @mixin vertical-align($position: relative){
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+} */

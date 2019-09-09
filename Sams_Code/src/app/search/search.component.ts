@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProfilesService } from '../profile/profiles.service';
 import { Profile } from '../profile/profile.model';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +9,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @ViewChild('searchForm', {static: true}) searchForm: NgForm;
+  //template driven form
+  // @ViewChild('searchForm', {static: true}) searchForm: NgForm;
+
+  searchForm: FormGroup;
   searchBy: any;
   searchTerm: string; 
   profiles: Profile[];
@@ -61,6 +64,10 @@ export class SearchComponent implements OnInit {
       this.searchForm.reset();
   }
   ngOnInit() {
+    this.searchForm = new FormGroup({
+      'searchCategory': new FormControl(null,Validators.required),
+      'searchedTerm': new FormControl(null, Validators.required)
+    })
     this.profiles = this.proService.getProfiles();
     console.log(this.profiles + " this profiles in search comp.")
   }

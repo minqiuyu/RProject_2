@@ -5,11 +5,11 @@
       </div>    
             <ul class="nav nav-tabs mr-auto">
                 <!-- <li class="active nav-item nav-link" > -->
-                    <li *ngIf="!loggedIn"role="presentation" class="nav-item"> <a class="nav-link" routerLink="/register"
+                    <!-- <li *ngIf="!loggedIn"role="presentation" class="nav-item"> <a class="nav-link" routerLink="/register"
                     routerLinkActive="active"
-                    routerLinkActiveOptions="{exact: true}">Register</a></li> 
+                    routerLinkActiveOptions="{exact: true}">Register</a></li> -->
                     <li class="nav-item" *ngIf="loggedIn"><a routerLink="/search"
-                        routerLinkActive="active" class="nav-link">Search</a></li>
+                   routerLinkActive="active" class="nav-link">Search</a></li> 
                     <li *ngIf="loggedIn"><a class="nav-link" routerLinkActive="active"
                         routerLink="/myprofile">My Profile</a>
                 </li>
@@ -19,9 +19,9 @@
                 <!-- <li *ngIf="loggedIn"><a class="nav-link" routerLinkActive="active"
                     routerLink="/profiles">View Profiles</a>
             </li> -->
-            <li *ngIf="!loggedIn"><a class="nav-link" routerLinkActive="active"
+            <!-- <li *ngIf="!loggedIn"><a class="nav-link" routerLinkActive="active"
                 routerLink="/login">Login</a>
-        </li>
+        </li> -->
         <li (click)="onLogout()" *ngIf="loggedIn"><a class="nav-link" routerLinkActive="active"
             routerLink="/login">Logout</a>
     </li>
