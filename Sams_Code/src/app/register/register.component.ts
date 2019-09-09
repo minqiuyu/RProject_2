@@ -19,11 +19,12 @@ export class RegisterComponent implements OnInit {
       'username': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'dob': new FormControl(null, Validators.required),
-      'city': new FormControl(null),
+      'city': new FormControl(null, Validators.required),
       // 'state': 
       'gender': new FormControl('male', Validators.required),
       // 'hobbies': new FormArray([])
     });
+    console.log(this.registerForm);
   }
 
   onSubmit(){
