@@ -18,6 +18,9 @@ export class RegisterComponent implements OnInit {
       // 'userData': new Form
       'username': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
+      'dob': new FormControl(null, Validators.required),
+      'city': new FormControl(null),
+      // 'state': 
       'gender': new FormControl('male', Validators.required),
       // 'hobbies': new FormArray([])
     });
