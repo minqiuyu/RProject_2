@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -7,8 +7,15 @@ import { Post } from './post.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
-  posts: Post[]; //will need a model for this.
+export class PostService implements OnInit{
+  posts: Post[] = [
+    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}')
+
+
+  ]
 
   private _postsUrl = 'http://localhost:8080/TestProj/html/Finance-manager.do';
   private httpOptions = {
@@ -19,6 +26,10 @@ export class PostService {
   }
   constructor(private httpServ: HttpClient) { }
 
+  ngOnInit(){
+    this.addFakePosts();
+  }
+
   fetchTixFromDB(): Observable<any>{
     return this.httpServ.get(this._postsUrl,this.httpOptions).pipe(
       map (res => res as any)
@@ -27,7 +38,12 @@ export class PostService {
 
   addFakePosts(){
     this.posts = [
-      new Post(1, 'Sam', 'First Post', 'Hello from our social media app, {{insertNameHere}}')
+      new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+      new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+      new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+      new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}')
+
+
     ]
   }
 
