@@ -7,7 +7,7 @@ import {map, catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProfilesService {
-  private _allProfilesUrl = 'http://localhost:8080/';
+  private _allProfilesUrl = 'http://localhost:9005/HelloSpringMVC/allProfiles.foo';
   private _loginUrl = 'http://localhost:8080/';
   private httpOptions = {
     headers: new HttpHeaders({
