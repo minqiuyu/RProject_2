@@ -6,11 +6,9 @@
     <form class="form" (ngSubmit)="setPost(postTitle,postBody)"  
     [formGroup]='newPostForm'
     >
-    <!-- #postForm = "ngForm" -->
     <input 
     formControlName="postTitle"
     type="text" name='post-title' class="form-control" placeholder='post-title' [(ngModel)]="postTitle" required>
-    <!-- <div class="alert alert-danger" [hidden]="title.pristine || title.valid">Post title is mandatory</div> -->
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">Required field. Minimum length of 5 required.</span>
@@ -18,7 +16,6 @@
     <textarea  
     formControlName="postBody"
     type="text" name='post-body' class='form-control contenteditable' placeholder='write post here' [(ngModel)]="postBody" required></textarea>
-    <!-- <div class="alert alert-danger" [hidden]="body.pristine || body.valid"> Posts must have a body </div> -->
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>

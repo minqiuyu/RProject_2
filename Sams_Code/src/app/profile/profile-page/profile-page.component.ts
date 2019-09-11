@@ -13,8 +13,6 @@ export class ProfilePageComponent implements OnInit {
   posts: any;
  profile: Profile = new Profile();
   profiles: Profile[];
-  // data: any;
-  // @Input() profile: Profile = new Profile();
    
   constructor(private route: ActivatedRoute, 
               private proService: ProfilesService,
@@ -37,7 +35,6 @@ export class ProfilePageComponent implements OnInit {
         .subscribe(
           (params: Params) =>{
             this.profile = this.loopProfiles(params.username) // loops through the profiles from service to find the one matching the url params
-            // this.profile = p;
 
             // this.profile.setUsername(params['username']);
             console.log('Profile in profilepage ' + JSON.stringify(this.profile))
@@ -55,22 +52,7 @@ export class ProfilePageComponent implements OnInit {
       this.postServ.addFakePosts();
       this.posts = this.postServ.getPosts();
     }
-    // console.log('NgOnInit inside profile-page: ' + this.route.snapshot.params['username'])
-    // this.profile = new Profile(this.route.snapshot.params['params'])
-    // this.profile = new Profile();
-    // this.profile.setUsername(this.route.snapshot.params['username']);
     
-    // console.log('this.profile in prof page: ' + JSON.stringify(this.profile))
-    // this.profile = new Profile(this.route.snapshot.params['username'])
-  //   console.log('This.profile in profile page com. ' + this.profile)
-  // this.route.queryParams
-  // this.route.params
-  //   .subscribe(
-  //     (params: Params) =>{
-  //       this.profile = params['username'];
-  //       console.log('Profile in profilepage ' + this.profile)
-  //     }
-  //   )
   }
   fetchPosts(){
     // this.postServ.fetchTixFromDB().subscribe(data => {

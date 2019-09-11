@@ -3,10 +3,7 @@ import { Subject } from 'rxjs';
 
 export class AuthService {
     loggedIn = false;
-
     loggingIn = new Subject<boolean>();
-
-    // loggingIn = new EventEmitter<boolean>();
 
     isAuthenticated(){
         const promise = new Promise(
@@ -18,6 +15,7 @@ export class AuthService {
         );
         return promise;
     }
+    
     login(){
         this.loggedIn = true;
         this.loggingIn.next(true);
