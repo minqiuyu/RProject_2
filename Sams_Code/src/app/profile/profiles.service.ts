@@ -7,8 +7,8 @@ import {map, catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProfilesService {
-  private _url = 'http://localhost:8080/TestProj/html/Finance-manager.do';
-  private _loginUrl = 'http://localhost:8080/TestProj/html/Login.do';
+  private _allProfilesUrl = 'http://localhost:8080/';
+  private _loginUrl = 'http://localhost:8080/';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept' : ['application/x-www-form-urlencoded', 'application/json'],
@@ -18,7 +18,7 @@ export class ProfilesService {
 
   constructor(private httpServ: HttpClient) { }
   fetchProfilesFromDB(): Observable<Profile>{
-    return this.httpServ.get(this._url, this.httpOptions).pipe(
+    return this.httpServ.get(this._allProfilesUrl, this.httpOptions).pipe(
       map (res => res as Profile)
     )
   }

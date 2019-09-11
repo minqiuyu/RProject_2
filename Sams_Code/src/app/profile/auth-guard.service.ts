@@ -21,6 +21,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                         if(authenticated){
                             return true;
                         } else {
+                            alert("You are unauthorized to view this page. Redirecting...")
                             this.router.navigate(['/login']);
                         }
                     }

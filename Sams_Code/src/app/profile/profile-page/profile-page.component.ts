@@ -45,6 +45,12 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.profiles = this.proService.getProfiles();
+    // this.profiles = this.proService.getProfiles().subscribe((data)=>{
+    //   console.log("Profiles: " + data)
+    // }, (error){
+    //   console.log("Error caught: " + error)
+    // });
+
     // console.log("proService: " + JSON.stringify(this.proService.getProfiles()))
     this.fetchProfile();
     // this.fetchPosts();
