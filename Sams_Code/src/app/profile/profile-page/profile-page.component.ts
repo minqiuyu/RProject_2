@@ -73,8 +73,8 @@ export class ProfilePageComponent implements OnInit {
   //   )
   }
   fetchPosts(){
-    this.postServ.fetchTixFromDB().subscribe(data => {
-      this.posts = data;
-    })
+    // this.postServ.fetchTixFromDB().subscribe(data => {
+    //   this.posts = data;
+    // })
     }
 }
