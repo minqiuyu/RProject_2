@@ -1,19 +1,26 @@
 package Test;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import Controller.ProfileController;
 import Model.Profile;
+import Repo.ProfileDao;
+import Service.ProfileServ;
 
 public class Test {
 
+	public static ApplicationContext appContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+	public static ProfileDao pd = appContext.getBean("profileDao", ProfileDao.class);
+	
 	public static void main(String[] args) {
 		
-		ProfileController Pc = new ProfileController();
-		Profile profile = new Profile();
+	
+		//ProfileServ ps = new ProfileServ();
+//		ProfileDao pd = new ProfileDao();
+		System.out.println(pd.selectAll());
 		
-		profile.setUserName("kim");
-		profile.setUserPassword("test");
-		
-		Pc.insert(profile);
+		System.out.println("Done");
 
 	}
 

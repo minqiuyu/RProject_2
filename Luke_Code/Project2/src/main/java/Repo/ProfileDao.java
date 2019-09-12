@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import Model.Profile;
 
-@Repository("profileDaoo")
+@Repository("profileRepo")
 @Transactional
 public class ProfileDao {
 	
@@ -18,7 +18,7 @@ public class ProfileDao {
 	private SessionFactory sesFact;
 	public ProfileDao() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void insert(Profile profile) {
@@ -34,8 +34,8 @@ public class ProfileDao {
 	}
 	
 	public List<Profile> selectAll(){
-		return sesFact.getCurrentSession()
-				.createQuery("from Profile", Profile.class).list();
+		List<Profile> profileList = sesFact.getCurrentSession().createQuery("from Profile", Profile.class).list();
+		return profileList;
 	}
 	
 	

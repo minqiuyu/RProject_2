@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import Model.Post;
 
-@Repository("postDao")
+@Repository("postRepo")
 @Transactional
 public class PostDao {
 
@@ -17,7 +17,7 @@ public class PostDao {
 	private SessionFactory sesFact;
 	public PostDao() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void insert(Post post) {

@@ -1,50 +1,37 @@
 package Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Model.Profile;
-import Repo.ProfileDao;
+import Service.ProfileServ;
 
 @CrossOrigin
 @RestController
 public class ProfileController {
 	
 	@Autowired
-	private ProfileDao profileDao;
+	private ProfileServ profileserv;
 	
 	
-
-	public ProfileController() {
+	//Get all profiles
+	@GetMapping("/GetallP")
+	public ResponseEntity<List<Profile>> list(){
+		List<Profile>Plist = profileserv.selectAll();
+		return ResponseEntity.ok().body(Plist);
 		
 	}
 	
-//	Profile pro = new Profile(request.getParam("username"), request.getParam("password")..etc  
-//			// then somewhere else we would do this:
-//			FoodDao fd = fd.insert(pro);
 	
-	@PostMapping(value="/CreateProfile.foo")
-	public void insert(Profile profile) {
-	
-//		Profile pro = new Profile();
+//	@PostMapping(value="/CreateProfile.foo")
+//	public void insert(Profile profile) {
 //		
-//		String userName = pro.se
-//		String userPassword = profile.getUserPassword()
-//		long phoneNum = profile.getPhoneNum();
-//		String fName = profile.getfName() ;
-//		String lName = profile.getlName() ;
-//		String gender = profile.getGender();
-//		int dob = profile.getDob();
-//		String city = profile.getCity();
-//		String email = profile.getEmail();
-//		
-		
-		
-	}
-	
-
-
+//	}
+//	
 
 }

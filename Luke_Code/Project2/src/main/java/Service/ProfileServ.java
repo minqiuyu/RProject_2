@@ -18,5 +18,6 @@ public class ProfileServ {
 		return profiledao.selectAll();
 	}
 	
+	
 
 }
