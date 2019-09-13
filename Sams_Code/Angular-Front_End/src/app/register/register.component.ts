@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     console.log(this.registerForm);
-    let profile: Profile = new Profile(this.registerForm.value.username);
-    alert("New partial profile added! " + JSON.stringify(profile));
+    // let profile: Profile = new Profile(this.registerForm.value.username);
+    // alert("New partial profile added! " + JSON.stringify(profile));
     this.registerForm.reset();
   }
 

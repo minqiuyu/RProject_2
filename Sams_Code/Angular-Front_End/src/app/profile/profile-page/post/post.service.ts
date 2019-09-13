@@ -9,17 +9,15 @@ import { Post } from './post.model';
 })
 export class PostService implements OnInit{
   posts: Post[] = [
-    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
-    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
-    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
-    new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}')
+    // new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    // new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    // new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
+    // new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}')
 
 
   ]
 
-  private _allPostsUrl = 'http://localhost:8080/HelloSpringMVC/getAllFood.app';
-  private _onePostUrl = 'http://localhost:8080/HelloSpringMVC/getFoodById.app?id=1';
-  private _createPostUrl = 'http://localhost:8080/HelloSpringMVC/addFood.app';
+  private _Url = 'http://localhost:8080/Project2/';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept' : 'application/json',
@@ -32,23 +30,23 @@ export class PostService implements OnInit{
     this.addFakePosts();
   }
 
-  fetchAllPosts(): Observable<any>{
-    return this.httpServ.get(this._allPostsUrl,this.httpOptions).pipe(
+  fetchAllPosts(): Observable<Post[]>{
+    return this.httpServ.get(this._Url + "allPosts.do",this.httpOptions).pipe(
       map (res => res as any)
     )
   }
 
   fetchOnePost(id: number){
-    return this.httpServ.get(this._onePostUrl, this.httpOptions).pipe(
+    return this.httpServ.get(this._Url + "allPosts/" + id + ".do", this.httpOptions).pipe(
       map (res => res as any)
     )
   }
 
   insertPost(food){
     console.log(food.dishName)
-    return this.httpServ.post(this._createPostUrl, {'dishName': food.dishName, 'isTasty': food.isTasty}, this.httpOptions).pipe(
-      map (res => res as any)
-    )
+    // return this.httpServ.post(this._createPostUrl, {'dishName': food.dishName, 'isTasty': food.isTasty}, this.httpOptions).pipe(
+    //   map (res => res as any)
+    // )
 
   }
 

@@ -2,8 +2,11 @@ import { last } from 'rxjs/operators';
 
 export class Profile {
 
-    constructor(private username: string='', private firstName: string='', private lastName: string='', private email: string='',private imageUrl: string=''){}
-    // constructor(){}
+    constructor(private userId: number, private username: string='', private password: string='', 
+    private phoneNumber: number,private firstName: string='', private lastName: string='',
+    private gender: string='', private dob: number, private city: string, private email: string='',
+    ){}
+    // private imageUrl: string=''
     getUsername(){
         return this.username;
     }

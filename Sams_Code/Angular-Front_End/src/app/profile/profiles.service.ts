@@ -7,19 +7,32 @@ import {map, catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProfilesService {
-  private _allProfilesUrl = 'http://localhost:9005/HelloSpringMVC/allProfiles.foo';
+  private _Url = 'http://localhost:8080/Project2/';
+  private _oneProfileUrl = 'http://localhost:8080/Project2/'
   private _loginUrl = 'http://localhost:8080/';
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Accept' : ['application/x-www-form-urlencoded', 'application/json'],
-      'Content-Type': 'application/x-www-form-urlencoded'
-    })
-  }
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Accept' : ['application/x-www-form-urlencoded', 'application/json'],
+  //     'Content-Type': 'application/x-www-form-urlencoded'
+  //   })
+  // }
 
   constructor(private httpServ: HttpClient) { }
-  fetchProfilesFromDB(): Observable<Profile>{
-    return this.httpServ.get(this._allProfilesUrl, this.httpOptions).pipe(
-      map (res => res as Profile)
+  fetchProfilesFromDB(): Observable<Profile[]>{
+    return this.httpServ.get(this._Url + "GetAllP.do").pipe(
+      map (res => res as any)
+    )
+  }
+
+  fetchMyProfile(userId: number){
+    return this.httpServ.get(this._Url + `SelectById/${userId}`).pipe(
+      map (res => res as any)
+    )
+  }
+
+  addProfile(profile: Profile){
+    return this.httpServ.post(this._Url + "InsertProfile.do", profile).pipe(
+      map(res => res as any)
     )
   }
 
@@ -50,22 +63,20 @@ export class ProfilesService {
     // body.set('username', username);
     // body.set('password', password);
     let body = `username=${username}&password=${password}`;
-    console.log("sendLoginCreds fired from profile service. Username and password are " + username)
-    return this.httpServ.post<any>(this._loginUrl, body, this.httpOptions)
+    return this.httpServ.post<any>(this._loginUrl, body)
     .pipe(
       // map (res => res as any)
       catchError(this.handleError)
     )
   }
   private profiles: Profile[] = [
-    new Profile("Luc","Lucnel", "Nordelus", "luc@luc.com","https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
-    new Profile("Niro", "Niroj", "Nanganathan", "nn@nn.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
-    new Profile("Samwise", "Sam", "Jones", "lol@samwise.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
-    new Profile("Jimmy", "Minqiu","Yu", "jyu@jyu.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png")
+    // new Profile("Luc","Lucnel", "Nordelus", "luc@luc.com","https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
+    // new Profile("Niro", "Niroj", "Nanganathan", "nn@nn.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
+    // new Profile("Samwise", "Sam", "Jones", "lol@samwise.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png"),
+    // new Profile("Jimmy", "Minqiu","Yu", "jyu@jyu.com", "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png")
   ]
   
   getProfiles(){
-    console.log("profiles in service: " + (this.profiles))
     return this.profiles.slice();
   }
 

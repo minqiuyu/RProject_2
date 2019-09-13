@@ -14,6 +14,7 @@
     *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">Required field. Minimum length of 5 required.</span>
     <br>
     <textarea  
+    #editable
     formControlName="postBody"
     type="text" name='post-body' class='form-control contenteditable' placeholder='write post here' [(ngModel)]="postBody" required></textarea>
     <br>

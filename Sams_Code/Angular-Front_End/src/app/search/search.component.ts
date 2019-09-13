@@ -23,11 +23,9 @@ export class SearchComponent implements OnInit {
   noProfilesFound(){
     if(this.foundProfiles=== undefined || this.foundProfiles.length === 0){
       this.noneFound = true;
-      console.log(this.noneFound + " that none  were found.")
     }
     else {
       this.noneFound = false;
-      console.log(this.noneFound + " that none  were found.")
       console.log(this.foundProfiles==[])
 
     }
@@ -69,7 +67,6 @@ export class SearchComponent implements OnInit {
       'searchedTerm': new FormControl(null, Validators.required)
     })
     this.profiles = this.proService.getProfiles();
-    console.log(this.profiles + " this profiles in search comp.")
   }
 
   

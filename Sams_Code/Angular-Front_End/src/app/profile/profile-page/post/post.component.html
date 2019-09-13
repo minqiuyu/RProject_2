@@ -2,12 +2,20 @@
 
 <div class="card text-center">
     <div class="card-header">
-      Username
+      Posted by: {{post.userId}}
+      Post Id: {{post.postId}}
     </div>
     <div class="card-body">
-      <h5 class="card-title">Post Title</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Show Post</a>
+      <h5 class="card-title">{{post.postTitle}}</h5>
+      <!-- <button data-toggle="collapse" class="btn btn-primary">Show Post</button> -->
+      <!-- data-target="#post-body" -->
+      <!-- <div id="post-body" class="card-text collapse"> -->
+      <div id="post-body" class="card-text">
+
+        <p>{{post.postBody}}</p>
+
+      </div>
+
     </div>
     <div class="card-footer text-muted">
       SubmittedAt

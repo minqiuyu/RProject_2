@@ -11,8 +11,8 @@ import { PostService } from './post/post.service';
 })
 export class ProfilePageComponent implements OnInit {
   posts: any;
- profile: Profile = new Profile();
-  profiles: Profile[];
+ profile: Profile;
+  profiles: any;
    
   constructor(private route: ActivatedRoute, 
               private proService: ProfilesService,
@@ -37,14 +37,23 @@ export class ProfilePageComponent implements OnInit {
             this.profile = this.loopProfiles(params.username) // loops through the profiles from service to find the one matching the url params
 
             // this.profile.setUsername(params['username']);
-            console.log('Profile in profilepage ' + JSON.stringify(this.profile))
+            // console.log('Profile in profilepage ' + JSON.stringify(this.profile))
           }
         )
         
       }
 
+  fetchAllPostsFromDB(){
+    this.postServ.fetchAllPosts().subscribe((data)=>{
+      this.posts = data;
+      console.log(this.posts, " Posts from profile page.")
+    })
+  }
   ngOnInit() {
-    this.profiles = this.proService.getProfiles();
+   this.proService.fetchProfilesFromDB().subscribe((data)=>{
+     console.log(data, " from API")
+    });
+    console.log("Profiles from API: " + JSON.stringify(this.profiles))
     // this.profiles = this.proService.getProfiles().subscribe((data)=>{
     //   console.log("Profiles: " + data)
     // }, (error){

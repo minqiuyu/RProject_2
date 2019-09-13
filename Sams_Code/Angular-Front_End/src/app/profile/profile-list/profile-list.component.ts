@@ -13,14 +13,16 @@ export class ProfileListComponent implements OnInit {
   profiles: Profile[];
   selectedProfile = new EventEmitter<string>();
 
-  loadReimbs(){
-
-  }
+ 
   constructor(private route: ActivatedRoute, private proService: ProfilesService, private router: Router) { }
 
   ngOnInit() {
     this.profiles = this.proService.getProfiles();
-    console.log("proService: " + JSON.stringify(this.proService.getProfiles()))
+     this.proService.fetchProfilesFromDB().subscribe((data)=>{
+     
+      this.profiles = data;
+      console.log("Profiles from API " + JSON.stringify(this.profiles))
+    });
 
   }
 
