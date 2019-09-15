@@ -1,43 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Profile } from './profile.model';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject } from 'rxjs';
 import {map, catchError} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class ProfilesService {
-  private _Url = 'http://localhost:8080/Project2/';
+  private _Url = 'http://localhost:9005/SpringMVCPractice/';
   private _oneProfileUrl = 'http://localhost:8080/Project2/'
   private _loginUrl = 'http://localhost:8080/';
-  // private httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Accept' : ['application/x-www-form-urlencoded', 'application/json'],
-  //     'Content-Type': 'application/x-www-form-urlencoded'
-  //   })
-  // }
+  profilesFound: Subject<Profile[]>;
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      // 'Accept' : ['application/json'],
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private httpServ: HttpClient) { }
-  fetchProfilesFromDB(): Observable<Profile[]>{
-    return this.httpServ.get(this._Url + "GetAllP.do").pipe(
-      map (res => res as any)
-    )
-  }
-
-  fetchMyProfile(userId: number){
-    return this.httpServ.get(this._Url + `SelectById/${userId}`).pipe(
-      map (res => res as any)
-    )
-  }
-
-  addProfile(profile: Profile){
-    return this.httpServ.post(this._Url + "InsertProfile.do", profile).pipe(
+  
+  addProfile(profile: any){
+    console.log(profile)
+    return this.httpServ.post(this._Url + "addProfile.do", profile,this.httpOptions).pipe(
       map(res => res as any)
     )
   }
 
- 
-
+  delProfile(profile: Profile){
+    return this.httpServ.delete(this._Url + `deleteProfile.do`, this.httpOptions).pipe(
+      map(res => res as any)
+    )
+  }
 
   private handleError(error: HttpErrorResponse){
     if(error.error instanceof ErrorEvent){

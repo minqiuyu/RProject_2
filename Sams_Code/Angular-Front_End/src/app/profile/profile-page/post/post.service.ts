@@ -17,7 +17,7 @@ export class PostService implements OnInit{
 
   ]
 
-  private _Url = 'http://localhost:8080/Project2/';
+  private _Url = 'http://localhost:9005/SpringMVCPractice/';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept' : 'application/json',
@@ -37,16 +37,21 @@ export class PostService implements OnInit{
   }
 
   fetchOnePost(id: number){
-    return this.httpServ.get(this._Url + "allPosts/" + id + ".do", this.httpOptions).pipe(
+    return this.httpServ.get(this._Url + "allPosts/" + id, this.httpOptions).pipe(
       map (res => res as any)
     )
   }
 
-  insertPost(food){
-    console.log(food.dishName)
-    // return this.httpServ.post(this._createPostUrl, {'dishName': food.dishName, 'isTasty': food.isTasty}, this.httpOptions).pipe(
-    //   map (res => res as any)
-    // )
+  fetchPostsByUserId(userId: number): Observable<Post[]>{
+    return this.httpServ.get(this._Url + `postsByUser/${userId}`, this.httpOptions).pipe(
+      map (res => res as any)  
+    )
+    }
+  insertPost(post: Post){
+    // console.log(food.dishName)
+    return this.httpServ.post(this._Url + "addPost.do", post, this.httpOptions).pipe(
+      map (res => res as any)
+    )
 
   }
 

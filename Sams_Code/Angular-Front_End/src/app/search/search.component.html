@@ -6,18 +6,20 @@
 
             <div class="col-lg-8 form-container">
                 <form (ngSubmit)="searchForProfile()" [formGroup]="searchForm">
-                    <select formControlName='searchCategory' name="searchBy" id="" [(ngModel)]= "searchBy" required ngNativeValidate>
+                    <select formControlName='searchCategory' name="searchBy" id=""  required ngNativeValidate>
                         <option value="" selected disabled hidden>Choose an option</option>
                         <option value="username">username</option>
                         <option value="email">email</option>
                         <option value="firstName">first name</option>
                         <option value="lastName"> last name</option>
+                        <option value="userId"> user ID</option>
+
                         
                         
                     </select>
                     <span class="help-block alert alert-warning"
                     *ngIf="!searchForm.get('searchCategory').valid && searchForm.get('searchCategory').touched">Please select an option.</span>
-                    <input formControlName='searchedTerm' type="text" [(ngModel)] = "searchTerm" name="searchTerm" class="form-control" placeholder="Search here"   required>
+                    <input formControlName='searchedTerm' type="text"  name="searchTerm" class="form-control" placeholder="Search here"   required>
                     <span class="help-block alert alert-warning" 
                     *ngIf="!searchForm.get('searchedTerm').valid && searchForm.get('searchedTerm').touched">Please enter valid search criteria.</span>
                     <br>
@@ -28,7 +30,7 @@
 
                 
                 <div *ngIf="!noneFound">
-                    <app-profile-item [profile]="p" *ngFor="let p of foundProfiles"></app-profile-item>
+                    <app-profile-item [profile]="p" *ngFor="let p of profiles"></app-profile-item>
                     
                 </div>
                 <div class="col-lg-6" *ngIf="noneFound">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Profile } from '../profile/profile.model';
+import { ProfilesService } from '../profile/profiles.service';
 
 @Component({
   selector: 'app-register',
@@ -11,16 +12,16 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   genders: string[] = ['male','female'];
 
-  constructor() { }
+  constructor(private profileServ: ProfilesService) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      'username': new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      'firstName': new FormControl(null, Validators.required),
-      'lastName': new FormControl(null, Validators.required),
+      'userName': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'userPassword': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'fName': new FormControl(null, Validators.required),
+      'lName': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'dob': new FormControl(null, Validators.required),
+      'dob': new FormControl(null),
       'city': new FormControl(null, Validators.required),
       'gender': new FormControl('male', Validators.required),
       // 'hobbies': new FormArray([])
@@ -29,7 +30,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.registerForm);
+    console.log(JSON.stringify(this.registerForm.value) + " Values submitted");
+    this.profileServ.addProfile(this.registerForm.value).subscribe((response)=>{
+      console.log("REsponse from Add profile: " + response)
+    }, (error)=>{
+      console.log("Error, ruh roh! " + JSON.stringify(error));
+    })
     // let profile: Profile = new Profile(this.registerForm.value.username);
     // alert("New partial profile added! " + JSON.stringify(profile));
     this.registerForm.reset();

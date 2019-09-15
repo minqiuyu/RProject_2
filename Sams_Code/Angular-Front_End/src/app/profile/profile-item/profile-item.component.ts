@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Profile } from 'selenium-webdriver/firefox';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { SelectService } from 'src/app/select.service';
 
 @Component({
   selector: 'app-profile-item',
@@ -9,17 +11,20 @@ import { Router } from '@angular/router';
 })
 export class ProfileItemComponent implements OnInit {
   @Input() profile: Profile;
-  
-  constructor(private router: Router) { }
+  constructor(private router: Router, private selectServ: SelectService) { }
 
   navigateTo(username: string){
   
-    console.log('Username clicked in profile-list: ' + username)
-    // this.selectedProfile.emit(username)
+    // this.selectServ.selectedUsername.next(username);
+    this.selectServ.selectedUsername.emit(username);
     this.router.navigate(['/profiles', username])
-    // this.router.navigate([':' + '{{profile.getUsername()}}'], {relativeTo: this.route})
+    // this.router.navigate(['/profilepage', username]);
   }
 
+  navigateById(id: number){
+  
+    this.router.navigate(['/profiles', id])
+  }
   ngOnInit() {
   }
 

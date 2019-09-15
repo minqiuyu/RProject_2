@@ -15,22 +15,31 @@ export class NewPostComponent implements OnInit, AfterViewInit {
   post: Post;
   newPostForm: FormGroup;
   MediumEditor: any;
-  constructor(private postService: PostService) { }
+  constructor(private postServ: PostService) { }
   
   ngOnInit() {
     this.newPostForm = new FormGroup({
+      // 'postId': new FormControl(4),
+      'userId': new FormControl(2),
       'postTitle': new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      'postBody': new FormControl(null, Validators.required)
+      'postBody': new FormControl(null)
     });
+
+    console.log(this.newPostForm)
     }
     ngAfterViewInit(){
-      this.editable = new MediumEditor(this.editable.nativeElement)
+      // this.editable.nativeElement.class="large"
+      // this.editable = new MediumEditor(this.editable.nativeElement)
   
 
   }
 
-  setPost(title: string, body: string){
- 
+  onSubmit(){
+    this.postServ.insertPost(this.newPostForm.value).subscribe((data)=>{
+      console.log("Inserted post" + JSON.stringify(data))
+    }, (error)=>{
+      console.log("Ruh roh " + JSON.stringify(error));
+    })
     this.newPostForm.reset();
   }
 }

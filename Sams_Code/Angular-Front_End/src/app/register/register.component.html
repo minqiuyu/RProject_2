@@ -9,37 +9,37 @@
     <form [formGroup]='registerForm' (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="">Username</label>
-            <input formControlName="username" type="text" class="form-control">
+            <input formControlName="userName" name="userName" type="text" class="form-control">
         </div>
         <span class="help-block alert alert-warning" 
-        *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">Required field. Minimum length of 6 required.</span>
+        *ngIf="!registerForm.get('userName').valid && registerForm.get('userName').touched">Required field. Minimum length of 6 required.</span>
         
         <div class="form-group">
             <label for="">Password</label>
-            <input formControlName="password" type="password" class="form-control">
+            <input formControlName="userPassword" name="userPassword" type="password" class="form-control">
         </div>
         <span class="help-block alert alert-warning" 
-        *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Passwords must be 6 characters long.</span>
+        *ngIf="!registerForm.get('userPassword').valid && registerForm.get('userPassword').touched">Passwords must be 6 characters long.</span>
 
         
         <div class="form-group">
             <label for="">First Name</label>
-            <input formControlName="firstName" type="text" class="form-control">
+            <input formControlName="fName" name="fName" type="text" class="form-control">
         </div>
         <span class="help-block alert alert-warning"  
-        *ngIf="!registerForm.get('firstName').valid && registerForm.get('firstName').touched">First name is required.</span>
+        *ngIf="!registerForm.get('fName').valid && registerForm.get('fName').touched">First name is required.</span>
 
         
         <div class="form-group">
             <label for="">Last Name</label>
-            <input formControlName="lastName" type="text" class="form-control">
+            <input formControlName="lName" name="lName" type="text" class="form-control">
         </div>
         <span class="help-block alert alert-warning" 
-        *ngIf="!registerForm.get('lastName').valid && registerForm.get('lastName').touched">Passwords must be 6 characters long.</span>
+        *ngIf="!registerForm.get('lName').valid && registerForm.get('lName').touched">Passwords must be 6 characters long.</span>
 
         <div class="form-group">
             <label for="">Email</label>
-                <input formControlName="email" type="text" class="form-control">
+                <input formControlName="email" name="email" type="text" class="form-control">
                 <br>
                 <span class="help-block alert alert-warning" 
                 *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter a valid email.</span>
@@ -47,14 +47,14 @@
             </div>
                 <div class="form-group">
                     <label for="">D.O.B.</label>
-                    <input formControlName="dob" type="date" class="form-control">
+                    <input formControlName="dob" name="dob" type="date" class="form-control">
                 </div>
                 <span class="help-block alert alert-warning" 
                 *ngIf="!registerForm.get('dob').valid && registerForm.get('dob').touched">Please enter a valid date.</span>
           
                 <div class="form-group">
                     <label for="">City</label>
-                    <input formControlName="city" type="text" class="form-control">
+                    <input formControlName="city" name="city" type="text" class="form-control">
                 </div>
                 <span class="help-block alert alert-warning"  
                 *ngIf="!registerForm.get('city').valid && registerForm.get('city').touched">Please enter a valid city.</span>

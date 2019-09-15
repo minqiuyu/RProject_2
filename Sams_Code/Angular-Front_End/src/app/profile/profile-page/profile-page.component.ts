@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Profile } from '../profile.model';
 import { ProfilesService } from '../profiles.service';
 import { PostService } from './post/post.service';
+import { SelectService } from 'src/app/select.service';
+import { FetchProfileService } from 'src/app/fetch-profile.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -13,10 +15,15 @@ export class ProfilePageComponent implements OnInit {
   posts: any;
  profile: Profile;
   profiles: any;
+  username: string;
+  testProfile: Profile;
    
   constructor(private route: ActivatedRoute, 
               private proService: ProfilesService,
-              private postServ: PostService
+              private fetchServ: FetchProfileService,
+              private postServ: PostService,
+              private selectServ: SelectService,
+              private router: Router
     ) {
 
    }
@@ -50,28 +57,23 @@ export class ProfilePageComponent implements OnInit {
     })
   }
   ngOnInit() {
-   this.proService.fetchProfilesFromDB().subscribe((data)=>{
-     console.log(data, " from API")
-    });
-    console.log("Profiles from API: " + JSON.stringify(this.profiles))
-    // this.profiles = this.proService.getProfiles().subscribe((data)=>{
-    //   console.log("Profiles: " + data)
-    // }, (error){
-    //   console.log("Error caught: " + error)
-    // });
+    console.log(this.route.params);
+    this.route.params
+    .subscribe(
+      (params: Params) =>{
+        this.fetchServ.fetchProfileById(params.id).subscribe((data)=>{
+          this.profile=data;
+        }) 
 
-    // console.log("proService: " + JSON.stringify(this.proService.getProfiles()))
-    this.fetchProfile();
-    // this.fetchPosts();
-    if(this.posts == undefined){
-      this.postServ.addFakePosts();
-      this.posts = this.postServ.getPosts();
-    }
+      }
+    )
+
+    this.selectServ.selectedProfile.subscribe((data)=>{
+      this.profile=data;
+      console.log("Data from subject of the select service: " + data)
+    })
+   
     
   }
-  fetchPosts(){
-    // this.postServ.fetchTixFromDB().subscribe(data => {
-    //   this.posts = data;
-    // })
-    }
+ 
 }

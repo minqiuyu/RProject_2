@@ -9,14 +9,14 @@
         
     </li>   
     </div>
-    <form class="form-container col-lg-10" (ngSubmit)="onLogin(username,password)">
+    <form class="form-container col-lg-10" [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div class="form-group">
-            <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="username" required/>
+            <input type="text"  formControlName="userName" name="userName" class="form-control" placeholder="username" required/>
             <br>
-            <input type="text" [(ngModel)]="password" name="password" class="form-control" placeholder="password" required/>
+            <input type="text"  formControlName="userPassword" name="userPassword" class="form-control" placeholder="password" required/>
             <br>
             
-            <input type="submit" class="form-control btn btn-primary col-lg-3"/> 
+            <input type="submit" value="Login" class="form-control btn btn-primary col-lg-3"/> 
         </div>
         </form>
         </div>

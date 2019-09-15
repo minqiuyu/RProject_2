@@ -1,27 +1,35 @@
 <div class="jumbotron">
     This component uses a template driven form.
 </div>
-<div class="col-lg-6 container">
+<div class="col-lg-10container">
 
-    <form class="form" (ngSubmit)="setPost(postTitle,postBody)"  
+    <form class="form" (ngSubmit)="onSubmit()"  
     [formGroup]='newPostForm'
     >
     <input 
     formControlName="postTitle"
-    type="text" name='post-title' class="form-control" placeholder='post-title' [(ngModel)]="postTitle" required>
+    type="text" name='post-title' id="post-title" class="form-control col-lg-6" placeholder='post-title'  required>
     <br>
     <span class="help-block alert alert-warning" 
-    *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">Required field. Minimum length of 5 required.</span>
+    *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">At least 5 letters long.</span>
     <br>
+    <!-- contenteditable -->
     <textarea  
     #editable
     formControlName="postBody"
-    type="text" name='post-body' class='form-control contenteditable' placeholder='write post here' [(ngModel)]="postBody" required></textarea>
+    id="post-body"
+    contenteditable
+    type="text" name='post-body' class='form-control' placeholder='write post here'  style="height:400px;" required></textarea>
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
+    
     <br>
-    <input type="submit" class="btn btn-success" [disabled]="newPostForm.invalid || newPostForm.pristine">
+    <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.get('postTitle').valid  || newPostForm.pristine">
+    <!-- Form invalid: {{newPostForm.invalid}}
+    {{newPostForm.get('postBody').invalid}}
+    {{newPostForm.get('postTitle').invalid}} -->
+
 </form>
 </div>
 <div class="col-lg-6" *ngIf="post">

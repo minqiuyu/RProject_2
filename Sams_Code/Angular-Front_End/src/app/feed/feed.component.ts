@@ -4,20 +4,23 @@ import { PostService } from '../profile/profile-page/post/post.service';
 import { Subscription } from 'rxjs';
 import { ProfilesService } from '../profile/profiles.service';
 import { Profile } from '../profile/profile.model';
+import { AuthService } from '../profile/auth.service';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnDestroy {
   // post: Post = new Post(1,1,"First Post!","First posts body", 4, [1]);
   posts: Post[];
   testDataAll: any;
   testDataOne: any;
   testProfile = new Profile(5,"Angular","password",4072692222,"Sam","Jo", "male",1393,"Oviedo","samuel@gmail.com");
   postSubsc: Subscription;
-  constructor(private postService: PostService, private profileServ: ProfilesService) { }
+  loggedInUser: any;
+  constructor(private postService: PostService, private profileServ: ProfilesService, 
+    private auth: AuthService) { }
 
   ngOnInit() {
     // this.posts = this.postService.getPosts();
@@ -25,6 +28,11 @@ export class FeedComponent implements OnInit {
       console.log("data: " + JSON.stringify(data));
       this.posts = data;
       this.testDataAll=JSON.stringify(data);
+      this.auth.loggedInUser.subscribe((user)=>{
+        this.loggedInUser=user;
+        this.auth.user=user;
+        console.log("Logged in user in feed: " + this.loggedInUser)
+      })
     });
 
     this.postService.fetchOnePost(0).subscribe((data)=>{
@@ -32,16 +40,12 @@ export class FeedComponent implements OnInit {
       this.testDataOne = JSON.stringify(data);
     })
 
-    this.profileServ.fetchProfilesFromDB().subscribe((data)=>{
-      console.log("All data from profiles " + JSON.stringify(data))
-    })
-
-    this.profileServ.addProfile(this.testProfile).subscribe((data)=>{
-      console.log("Adding profile..." + data);
-    })
-    
-
   
+  }
+
+  ngOnDestroy(){
+    // console.log(this.loggedInUser);
+    this.auth.loggedInUser.next(this.loggedInUser);
   }
 
 }
