@@ -3,6 +3,7 @@ import { Post } from '../post.model';
 import { PostService } from '../post.service';
 import { FormGroup, NgForm, FormControl, Validators } from '@angular/forms';
 import MediumEditor from 'medium-editor';
+import { AuthService } from 'src/app/profile/auth.service';
 
 @Component({
   selector: 'app-new-post',
@@ -15,12 +16,14 @@ export class NewPostComponent implements OnInit, AfterViewInit {
   post: Post;
   newPostForm: FormGroup;
   MediumEditor: any;
-  constructor(private postServ: PostService) { }
+  myProfile: any;
+  constructor(private postServ: PostService, private auth: AuthService) { }
   
   ngOnInit() {
+    this.myProfile=this.auth.user;
     this.newPostForm = new FormGroup({
       // 'postId': new FormControl(4),
-      'userId': new FormControl(2),
+      'userId': new FormControl(this.myProfile.userId),
       'postTitle': new FormControl(null, [Validators.required, Validators.minLength(5)]),
       'postBody': new FormControl(null)
     });
