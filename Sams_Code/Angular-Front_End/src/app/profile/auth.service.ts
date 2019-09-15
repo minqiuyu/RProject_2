@@ -42,7 +42,7 @@ export class AuthService {
                 this.loggingIn.next(true);
                 this.user=response;
                 this.loggedInUser.next(response);
-                // this.router.navigate(['/feed']);
+                this.router.navigate(['/feed']);
             }
         }, (error)=>{
             if(error.status!=200){

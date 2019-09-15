@@ -32,12 +32,12 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value)
     let loginSuccessful = this.auth.login(this.loginForm.value.userName, this.loginForm.value.userPassword);
     this.loginForm.reset();
-    if(loginSuccessful){
-      console.log("Succesful login")
-      this.router.navigate(['/feed'])
-    } else {
-      console.log("Code bypassed")
-    }
+    // if(loginSuccessful){
+    //   console.log("Succesful login")
+    //   this.router.navigate(['/feed'])
+    // } else {
+    //   console.log("Code bypassed")
+    // }
   }
 
   onLogout(){
