@@ -13,7 +13,7 @@ import { FetchProfileService } from 'src/app/fetch-profile.service';
 })
 export class ProfilePageComponent implements OnInit {
   posts: any;
- profile: Profile;
+ profile: any;
   profiles: any;
   username: string;
   testProfile: Profile;
@@ -63,15 +63,17 @@ export class ProfilePageComponent implements OnInit {
       (params: Params) =>{
         this.fetchServ.fetchProfileById(params.id).subscribe((data)=>{
           this.profile=data;
+          this.postServ.fetchPostsByUserId(this.profile.userId).subscribe((posts)=>{
+            this.posts = posts;
+          })
         }) 
 
       }
     )
-
-    this.selectServ.selectedProfile.subscribe((data)=>{
-      this.profile=data;
-      console.log("Data from subject of the select service: " + data)
-    })
+    // this.selectServ.selectedProfile.subscribe((data)=>{
+    //   this.profile=data;
+    //   console.log("Data from subject of the select service: " + data)
+    // })
    
     
   }
