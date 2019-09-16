@@ -57,7 +57,6 @@ export class ProfilePageComponent implements OnInit {
     })
   }
   ngOnInit() {
-    console.log(this.route.params);
     this.route.params
     .subscribe(
       (params: Params) =>{

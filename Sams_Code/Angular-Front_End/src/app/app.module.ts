@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyProfileComponent } from './profile/my-profile/my-profile.component';
 import { LandingnavComponent } from './landingnav/landingnav.component';
 import { FeedComponent } from './feed/feed.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { FeedComponent } from './feed/feed.component';
     MyProfileComponent,
     LandingnavComponent,
     FeedComponent,
+    EditprofileComponent,
   ],
   imports: [
     BrowserModule,

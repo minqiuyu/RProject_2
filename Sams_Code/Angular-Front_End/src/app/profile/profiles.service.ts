@@ -27,7 +27,12 @@ export class ProfilesService {
       map(res => res as any)
     )
   }
-
+ editProfile(profile){
+   console.log(profile.userId);
+   return this.httpServ.put(this._Url + "/updateProfile/" + parseInt(profile.userId), profile).pipe(
+     map(res => res as any)
+   )
+ }
   delProfile(profile: Profile){
     return this.httpServ.delete(this._Url + `deleteProfile.do`, this.httpOptions).pipe(
       map(res => res as any)
