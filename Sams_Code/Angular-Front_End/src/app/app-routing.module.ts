@@ -33,7 +33,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search', 
   canActivate: [AuthGuard],
-   component: SearchComponent},
+   component: SearchComponent, children:
+   [{path: ":id", component: ProfilePageComponent}]},
   {path: '', component: LoginComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}

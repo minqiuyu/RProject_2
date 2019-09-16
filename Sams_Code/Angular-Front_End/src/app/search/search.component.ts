@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { ProfilesService } from '../profile/profiles.service';
 import { Profile } from '../profile/profile.model';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -18,16 +18,16 @@ export class SearchComponent implements OnInit {
   searchBy: any;
   searchTerm: string; 
   profiles: Profile[];
-  profilesFound = new Subject<Profile[]>();
-  noneFound: boolean;
+  // foundE = new EventEmitter<boolean>()l
+  found:boolean;
   constructor(private fetchServ: FetchProfileService) { }
   // private proService: ProfilesService
   noProfilesFound(){
-    if(this.profiles=== undefined || this.profiles.length === 0){
-      this.noneFound = true;
+    if(this.profiles== undefined || this.profiles == []){
+      this.found = false;
     }
     else {
-      this.noneFound = false;
+      this.found = true;
 
     }
   }
@@ -59,39 +59,11 @@ export class SearchComponent implements OnInit {
         this.fetchServ.fetchProfileById(this.searchForm.value.searchedTerm).subscribe((data)=>{
           this.profiles.push(data);
           console.log(data)
-          this.profilesFound.subscribe((data)=>{
-            this.profiles = data;
-          });
-          console.log(this.profiles);
         });
     }
     
-    // for(let p of this.profiles){
-    //  switch(this.searchTerm){
-    //    case "username":
-    //      if(p.getUsername().toLowerCase().includes(this.searchTerm.toLowerCase())){
-    //        this.foundProfiles.push(p)
-    //      }
-    //      break;
-    //   case "email":
-    //       if(p.getEmail().toLowerCase().includes(this.searchTerm.toLowerCase())){
-    //         this.foundProfiles.push(p)
-    //       }
-    //     break;
-    //   case "firstName":
-    //       if(p.getFirstName().toLowerCase().includes(this.searchTerm.toLowerCase())){
-    //         this.foundProfiles.push(p)
-    //       }
-    //     break;
-    //   case "lastName":
-    //       if(p.getLastName().toLowerCase().includes(this.searchTerm.toLowerCase())){
-    //         this.foundProfiles.push(p)
-    //       }
-    //     break;
-    //  }
-    //   }
-
-      // this.noProfilesFound();
+    
+      this.noProfilesFound();
       this.searchForm.reset();
   }
   ngOnInit() {

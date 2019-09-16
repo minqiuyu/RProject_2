@@ -29,13 +29,12 @@
                 
 
                 
-                <div *ngIf="!noneFound">
+                <div>
+
                     <app-profile-item [profile]="p" *ngFor="let p of profiles"></app-profile-item>
                     
                 </div>
-                <div class="col-lg-6" *ngIf="noneFound">
-                    No profiles found.
-                </div>
+               
             </div>
         </div>
     </div>
