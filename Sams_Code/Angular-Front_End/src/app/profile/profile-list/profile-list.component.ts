@@ -23,7 +23,6 @@ export class ProfileListComponent implements OnInit {
      this.fetchServ.fetchProfilesFromDB().subscribe((data)=>{
      
       this.profiles = data;
-      console.log("Profiles from API " + JSON.stringify(this.profiles))
     });
 
   }

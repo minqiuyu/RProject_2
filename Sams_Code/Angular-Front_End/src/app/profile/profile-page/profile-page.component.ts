@@ -19,11 +19,8 @@ export class ProfilePageComponent implements OnInit {
   testProfile: Profile;
    
   constructor(private route: ActivatedRoute, 
-              private proService: ProfilesService,
               private fetchServ: FetchProfileService,
               private postServ: PostService,
-              private selectServ: SelectService,
-              private router: Router
     ) {
 
    }
@@ -42,21 +39,17 @@ export class ProfilePageComponent implements OnInit {
         .subscribe(
           (params: Params) =>{
             this.profile = this.loopProfiles(params.username) // loops through the profiles from service to find the one matching the url params
-
-            // this.profile.setUsername(params['username']);
-            // console.log('Profile in profilepage ' + JSON.stringify(this.profile))
           }
         )
-        
       }
 
   fetchAllPostsFromDB(){
     this.postServ.fetchAllPosts().subscribe((data)=>{
       this.posts = data;
-      console.log(this.posts, " Posts from profile page.")
     })
   }
   ngOnInit() {
+    console.log(this.route.params);
     this.route.params
     .subscribe(
       (params: Params) =>{

@@ -16,7 +16,7 @@ export class ProfileItemComponent implements OnInit {
   navigateTo(username: string){
   
     // this.selectServ.selectedUsername.next(username);
-    this.selectServ.selectedUsername.emit(username);
+    // this.selectServ.selectedUsername.emit(username);
     this.router.navigate(['/profiles', username])
     // this.router.navigate(['/profilepage', username]);
   }
