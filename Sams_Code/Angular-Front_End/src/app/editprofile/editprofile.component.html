@@ -1,124 +1,36 @@
 <p>editprofile works!</p>
 {{profile.userName}}
 
-<form (ngSubmit)="editProfile(newProfile)">
+<form #editForm="ngForm" (ngSubmit)="editProfile(newProfile)">
 
         <div class="form-group">
                 <label for="">Username</label>
-                <input type="text" class="form-control" name="userName" [(ngModel)]="newProfile.userName">
+                <input type="text" class="form-control" name="userName" placeholder="{{profile.userName}}" [(ngModel)]="newProfile.userName" required>
         </div>
 
-        <div class="form-group">
-                <label for=""></label>
-                <input type="text" hidden value="profile.userPassWord" class="form-control" name="userPassword" [(ngModel)]="profile.userPassword">
-        </div>
     <div class="form-group">
             <label for="">First Name</label>
-            <input type="text" class="form-control" name="fName" [(ngModel)]="newProfile.fName">
+            <input type="text" class="form-control" name="fName" placeholder="{{profile.fName}}" [(ngModel)]="newProfile.fName" required>
     </div>
    
 
     <div class="form-group">
             <label for="">Last Name</label>
-            <input type="text" name="lName" class="form-control" [(ngModel)]="newProfile.lName">
+            <input type="text" name="lName"  class="form-control" placeholder="{{profile.lName}}" [(ngModel)]="newProfile.lName" required>
         
         </div>
   
     <div class="form-group">
             <label for="">Email</label>
-            <input type="text" name="email" class="form-control" [(ngModel)]="newProfile.email">
+            <input type="text" name="email"  class="form-control" placeholder="{{profile.email}}" [(ngModel)]="newProfile.email" required>
         
         </div>
     
-    <div class="form-group">
-            <label for="">Date of birth</label>
-            <input type="text" name="dob" class="form-control" [(ngModel)]="newProfile.dob">
-        </div>
-    
-
     <div class="form-group">
             <label for="">City</label>
-            <input type="text" name="city" class="form-control" [(ngModel)]="newProfile.city">
+            <input type="text" name="city"  class="form-control" placeholder="{{profile.city}}" [(ngModel)]="newProfile.city" required>
         
         </div>
-   
-    <div class="form-group">
-            <label for="">Gender</label>
-            <div class="radios" *ngFor="let gender of genders">
-                <label for="">{{gender}}</label>
-                <input type="radio" name="gender" [value]="gender"[(ngModel)]="newProfile.gender">
-            </div>
-        </div>
-    
-    <!-- <input type="text" name="email" [(ngModel)]="newProfile.email"> -->
-    <!-- <input type="text" name="email" [(ngModel)]="newProfile.email"> -->
-    
-    
-    <input type="submit" class="btn btn-success" value="Done">
+    <input type="submit" class="btn btn-success" [disabled]="!editForm.valid" value="Done">
 </form>
 
-<!-- <form [formGroup]='editForm'>
-    <div class="form-group">
-        <label for="">Username</label>
-        <input formControlName="userName" name="userName" type="text" class="form-control">
-    </div>
-    <span class="help-block alert alert-warning" 
-    *ngIf="!registerForm.get('userName').valid && registerForm.get('userName').touched">Required field. Minimum length of 6 required.</span>
-    
-    <div class="form-group">
-        <label for="">Password</label>
-        <input formControlName="userPassword" name="userPassword" type="password" class="form-control">
-    </div>
-    <span class="help-block alert alert-warning" 
-    *ngIf="!registerForm.get('userPassword').valid && registerForm.get('userPassword').touched">Passwords must be 6 characters long.</span>
-
-    
-    <div class="form-group">
-        <label for="">First Name</label>
-        <input formControlName="fName" name="fName" type="text" class="form-control">
-    </div>
-    <span class="help-block alert alert-warning"  
-    *ngIf="!registerForm.get('fName').valid && registerForm.get('fName').touched">First name is required.</span>
-
-    
-    <div class="form-group">
-        <label for="">Last Name</label>
-        <input formControlName="lName" name="lName" type="text" class="form-control">
-    </div>
-    <span class="help-block alert alert-warning" 
-    *ngIf="!registerForm.get('lName').valid && registerForm.get('lName').touched">Passwords must be 6 characters long.</span>
-
-    <div class="form-group">
-        <label for="">Email</label>
-            <input formControlName="email" name="email" type="text" class="form-control">
-            <br>
-            <span class="help-block alert alert-warning" 
-            *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter a valid email.</span>
-      
-        </div>
-            <div class="form-group">
-                <label for="">D.O.B.</label>
-                <input formControlName="dob" name="dob" type="date" class="form-control">
-            </div>
-            <span class="help-block alert alert-warning" 
-            *ngIf="!registerForm.get('dob').valid && registerForm.get('dob').touched">Please enter a valid date.</span>
-      
-            <div class="form-group">
-                <label for="">City</label>
-                <input formControlName="city" name="city" type="text" class="form-control">
-            </div>
-            <span class="help-block alert alert-warning"  
-            *ngIf="!registerForm.get('city').valid && registerForm.get('city').touched">Please enter a valid city.</span>
-            
-            
-            <label for=""> Gender
-                </label>
-        <div class="radio" *ngFor="let gender of genders">
-                    <input type="radio"
-                    name="gender"
-        formControlName='gender'
-                    [value]="gender">
-                    {{ gender }}
-            </div>
-                    <input type="submit" class='btn btn-primary' [disabled]="registerForm.invalid"> -->
-<!-- </form> --> 
