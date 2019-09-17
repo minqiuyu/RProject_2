@@ -30,13 +30,13 @@ public class ProfileDao {
 //		sesFact.getCurrentSession().update(profile);
 //	}
 	
-	public void update(int id , Profile profile) {
-		Session session = sesFact.getCurrentSession();
-		Profile profile1 = session.byId(Profile.class).load(id);
-		profile1.getUserPassword();
-	}
-	
-	
+//	public void update(int id , Profile profile) {
+//		Session session = sesFact.getCurrentSession();
+//		Profile profile1 = session.byId(Profile.class).load(id);
+//		profile1.getUserPassword();
+//	}
+//	
+//	
 	public Profile selectById(int id) {
 		return sesFact.getCurrentSession().get(Profile.class, id);
 	}
@@ -50,15 +50,15 @@ public class ProfileDao {
 	
 	
 	public Profile selectByEmail(String email) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where email=?");
-		q.setString(0, email);
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where email=:email");
+		q.setString("email", email);
 		return (Profile) q.uniqueResult();
 //		return sesFact.getCurrentSession().get(Profile.class, userName);
 	}
 	
 	public List<Profile> selectByFirstName(String firstName) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = ?");
-		q.setString(0, firstName);
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = :fName?");
+		q.setString("fName", firstName);
 		return (List<Profile>) q.getResultList();
 	}
 	public List<Profile> selectAll(){
@@ -67,5 +67,20 @@ public class ProfileDao {
 	}
 	
 	
-
+	public void update(int id, Profile profile) {
+		Session sess = sesFact.getCurrentSession();
+		Profile oldProfile = sess.byId(Profile.class).load(id);
+		System.out.println("Old profile: " + oldProfile.toString());
+		oldProfile.setfName(profile.getfName());
+		oldProfile.setEmail(profile.getEmail());
+		oldProfile.setCity(profile.getCity());
+		oldProfile.setDob(profile.getDob());
+		oldProfile.setlName(profile.getlName());
+//		oldProfile.setlName(profile.getL());
+		oldProfile.setGender(profile.getGender());
+		oldProfile.setUserName(profile.getUserName());
+//		sess.merge(oldProfile);
+		sess.saveOrUpdate(oldProfile);
+		sess.flush();
+	}
 }

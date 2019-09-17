@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,17 +51,11 @@ public class ProfileController {
 	}
 	//insert a profile
 	@CrossOrigin("http://localhost:4200")
-//	@RequestMapping(value="InsertProfile.do", method=RequestMethod.POST)
 	@PostMapping(value="/addProfile.do")
 	@ResponseBody
 	
-//	@RequestParam String username, @RequestParam String password,
-//	@RequestParam String firstName, @RequestParam String lastName, @RequestParam Integer dob,
-//	@RequestParam String email, @RequestParam String city, @RequestParam String gender
 	public void insert(@RequestBody Profile profile){
 		System.out.println(profile);
-//		Profile nP = new Profile(username, password, firstName, lastName, gender, dob, city, email);
-//		proDao.insert(nP);
 		proDao.insert(profile);
 	}
 	 
@@ -73,11 +67,20 @@ public class ProfileController {
 	}
 	
 	//update profile
-//	@PutMapping("/UpdateProfile/{id}")
-//	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Profile profile){
-//		profileserv.
-		
-	//}
+//	@PutMapping("/updateProfile/{id}")
+//	public ResponseEntity<String> update(@PathVariable int id, @RequestBody Profile profile) {
+//		System.out.println("Updating profile: " + profile.toString());
+//		proDao.update(id, profile);
+//		return ResponseEntity.ok().body("Profile updated");
+//	}
+	
+	@PutMapping("/updateProfile/{id}")
+	public Profile updateAndReturn(@PathVariable int id, @RequestBody Profile profile) {
+		System.out.println("Updating profile: " + profile.toString());
+		proDao.update(id, profile);
+		return proDao.selectById(profile.getUserId());
+//		return ResponseEntity.ok().body("Profile updated");
+	}
 	
 }
 

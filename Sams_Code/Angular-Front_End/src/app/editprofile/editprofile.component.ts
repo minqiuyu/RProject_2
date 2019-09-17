@@ -30,12 +30,14 @@ export class EditprofileComponent implements OnInit {
     this.profile = this.auth.user; 
     this.newProfile.userId = this.profile.userId;
     this.newProfile.userPassword=this.profile.userPassword;
+    // this.auth.user = this.newProfile //reset the values for the logged in user to be equal to those just edited.
     }
   
 
   editProfile(obj){
     this.proServ.editProfile(obj).subscribe((res)=>{
       console.log(res);
+      this.auth.user=res;
     }, (error)=>{
       console.log(error);
     })
