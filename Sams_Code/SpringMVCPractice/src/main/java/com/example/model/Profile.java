@@ -203,7 +203,16 @@ public class Profile {
 		this.city = city;
 		this.email = email;
 	}
-	
+
+//	public Profile(int userId, String userName, String fName, String lName, String email) {
+//		super();
+//		this.userId = userId;
+//		this.userName = userName;
+//		this.fName = fName;
+//		this.lName = lName;
+//		this.email = email;
+//	}
+//	
 	
 	
 
