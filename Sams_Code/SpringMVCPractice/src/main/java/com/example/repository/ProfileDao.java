@@ -67,20 +67,23 @@ public class ProfileDao {
 	}
 	
 	
-	public void update(int id, Profile profile) {
+	public Profile update(int id, Profile profile) {
 		Session sess = sesFact.getCurrentSession();
-		Profile oldProfile = sess.byId(Profile.class).load(id);
-		System.out.println("Old profile: " + oldProfile.toString());
-		oldProfile.setfName(profile.getfName());
-		oldProfile.setEmail(profile.getEmail());
-		oldProfile.setCity(profile.getCity());
-		oldProfile.setDob(profile.getDob());
-		oldProfile.setlName(profile.getlName());
-//		oldProfile.setlName(profile.getL());
-		oldProfile.setGender(profile.getGender());
-		oldProfile.setUserName(profile.getUserName());
-//		sess.merge(oldProfile);
-		sess.saveOrUpdate(oldProfile);
-		sess.flush();
+		Profile newProfile = sess.byId(Profile.class).load(id);
+		
+		newProfile.setfName(profile.getfName());
+		newProfile.setEmail(profile.getEmail());
+		newProfile.setCity(profile.getCity());
+		newProfile.setDob(profile.getDob());
+		newProfile.setlName(profile.getlName());
+		newProfile.setGender(profile.getGender());
+		newProfile.setUserName(profile.getUserName());
+		newProfile.setUserPassword(profile.getUserPassword());
+		System.out.println("New profile: " + newProfile.toString());
+		sess.saveOrUpdate(newProfile);
+		System.out.println("Updated.");
+		
+		return newProfile;
 	}
+	
 }
