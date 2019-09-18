@@ -9,10 +9,13 @@ import { AuthService } from '../../auth.service';
 })
 export class PostComponent implements OnInit {
   @Input() post: any;
-  isYourPost: boolean;
+  isYourPost: boolean =false;
   constructor(private postServ: PostService, private authServ: AuthService) { }
 
   ngOnInit() {
+    if(this.post.userId == this.authServ.user.userId){
+      this.isYourPost=true;
+    }
   }
 
   likePost(){

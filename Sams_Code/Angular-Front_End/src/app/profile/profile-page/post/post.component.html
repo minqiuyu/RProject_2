@@ -22,6 +22,6 @@
       SubmittedAt
       <!-- button.btn-
        -->
-       <button mat-raised-button color="accent"(click)="likePost()">Like</button>
+       <button [disabled]="isYourPost" mat-raised-button color="accent"(click)="likePost()">Like</button>
     </div>
    </div>
