@@ -17,21 +17,12 @@ export class EditprofileComponent implements OnInit {
   constructor(private auth: AuthService, private proServ: ProfilesService) { }
 
   ngOnInit() {
-    // this.editForm = new FormGroup({
-    //   'userName': new FormControl(null, [Validators.required, Validators.minLength(6)]),
-    //   'fName': new FormControl(null, Validators.required),
-    //   'lName': new FormControl(null, Validators.required),
-    //   'email': new FormControl(null, [Validators.required, Validators.email]),
-    //   'city': new FormControl(null, Validators.required),
-    //   // 'hobbies': new FormArray([])
-    // });
     this.profile = this.auth.user; 
     this.newProfile.userId = this.profile.userId;
     this.newProfile.userPassword=this.profile.userPassword;
     this.newProfile.gender = this.profile.gender;
     this.newProfile.dob = this.profile.dob;
-    // this.auth.user = this.newProfile //reset the values for the logged in user to be equal to those just edited.
-    }
+   }
   
 
   editProfile(obj){
