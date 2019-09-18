@@ -39,8 +39,8 @@ public class Profile {
 	@Column(name = "GENDER", nullable = false)
 	private String gender;
 	
-//	@Column(name="profileImage")
-//	private String profileImage;
+	@Column(name="profileImage")
+	private String profileImage;
 	
 	@Column(name = "DOB")
 	private int dob;

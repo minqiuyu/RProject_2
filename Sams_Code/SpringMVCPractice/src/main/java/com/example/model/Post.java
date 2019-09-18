@@ -35,8 +35,8 @@ public class Post {
 	@Column(name = "NUM_LIKES")
 	private int numLikes;
 	
-//	@Column(name = "postImage")
-//	private String postImage;
+	@Column(name = "postImage")
+	private String postImage;
 	//private List<Ulike> whoseLiked;
 	
 	@ManyToOne(targetEntity= Post.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
