@@ -25,10 +25,7 @@
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
     
     <br>
-    <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.get('postTitle').valid  || newPostForm.pristine">
-    <!-- Form invalid: {{newPostForm.invalid}}
-    {{newPostForm.get('postBody').invalid}}
-    {{newPostForm.get('postTitle').invalid}} -->
+    <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.valid  || newPostForm.pristine">
 
 </form>
 </div>

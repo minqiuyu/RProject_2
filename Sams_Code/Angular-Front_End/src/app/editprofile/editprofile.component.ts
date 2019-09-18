@@ -37,6 +37,7 @@ export class EditprofileComponent implements OnInit {
   editProfile(obj){
     this.proServ.editProfile(obj).subscribe((res)=>{
       this.editForm.resetForm();
+      console.log("Response from server")
       console.log(res);
       this.auth.user=res; 
       this.profile=res;//reset the value of logged in user.

@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyProfileComponent } from './profile/my-profile/my-profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: "editProfile", component: EditprofileComponent, canActivate: [AuthGuard]},
   {path: 'feed', component: FeedComponent},
   {path: 'register', component: RegisterComponent},
+  {path:'resetPassword', component: ResetpasswordComponent},
   {path: 'newpost',
    canActivate: [AuthGuard], 
    component: NewPostComponent},

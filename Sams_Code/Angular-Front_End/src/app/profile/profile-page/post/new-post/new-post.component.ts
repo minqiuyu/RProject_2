@@ -25,7 +25,7 @@ export class NewPostComponent implements OnInit, AfterViewInit {
       // 'postId': new FormControl(4),
       'userId': new FormControl(this.myProfile.userId),
       'postTitle': new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      'postBody': new FormControl(null)
+      'postBody': new FormControl(null, Validators.required)
     });
 
     console.log(this.newPostForm)

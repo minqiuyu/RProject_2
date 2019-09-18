@@ -25,6 +25,7 @@ import { MyProfileComponent } from './profile/my-profile/my-profile.component';
 import { LandingnavComponent } from './landingnav/landingnav.component';
 import { FeedComponent } from './feed/feed.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     LandingnavComponent,
     FeedComponent,
     EditprofileComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,

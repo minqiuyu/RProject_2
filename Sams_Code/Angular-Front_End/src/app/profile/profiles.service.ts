@@ -29,7 +29,7 @@ export class ProfilesService {
   }
  editProfile(profile){
    console.log(profile.userId);
-   return this.httpServ.put(this._Url + "/updateProfile/" + parseInt(profile.userId), profile).pipe(
+   return this.httpServ.put(this._Url + "updateProfile/" + parseInt(profile.userId), profile).pipe(
      map(res => res as any)
    )
  }
@@ -39,6 +39,11 @@ export class ProfilesService {
     )
   }
 
+  resetPassword(profile){
+    return this.httpServ.put(this._Url + "resetPassword/" + profile.userName, profile).pipe(
+      map(res => res as any)
+    )
+  }
   private handleError(error: HttpErrorResponse){
     if(error.error instanceof ErrorEvent){
       //client-side error
