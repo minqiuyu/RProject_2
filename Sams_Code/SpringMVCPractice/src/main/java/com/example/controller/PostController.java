@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -48,7 +49,13 @@ public class PostController {
 //		System.out.println("Post added... " + post.toString());
 //		return ResponseEntity.ok().body("Post added: " + post.toString());
 //	}
-	
+	@PutMapping(value="/likePost/{id}.do")
+	public Post likePost(@PathVariable int id) {
+		Post postToLike = postDao.selectPostById(id);
+		postToLike.setNumLikes(postToLike.getNumLikes()+1);
+		postDao.update(postToLike);
+		return postToLike;
+	}
 	@PostMapping(value="/addPost.do")
 	public ResponseEntity<String> insert(@RequestBody Post post){
 		System.out.println("Post added... " + post.toString());

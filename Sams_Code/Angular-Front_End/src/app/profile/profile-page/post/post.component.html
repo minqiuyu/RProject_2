@@ -4,6 +4,7 @@
     <div class="card-header">
       Posted by: {{post.userId}}
       Post Id: {{post.postId}}
+      Num Likes: {{post.numLikes}}
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.postTitle}}</h5>
@@ -19,5 +20,8 @@
     </div>
     <div class="card-footer text-muted">
       SubmittedAt
+      <!-- button.btn-
+       -->
+       <button mat-raised-button color="accent"(click)="likePost()">Like</button>
     </div>
    </div>

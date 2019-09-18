@@ -24,7 +24,7 @@ public class SendEmail {
 		final String fromEmail = "revaturesocial@gmail.com"; // from email.created this Gmail for this project purpose.
 		
 		final String password = "socialappproject2"; //From email password
-		String toEmail = email; //to eamil.we need to get this password from user table when he request new password.
+		String toEmail = "samuelriley1393@gmail.com"; //to eamil.we need to get this password from user table when he request new password.
 		String subject = "Your Temporary password";
 		String message = "<p>Here is your temporary password to login. Plaese change a new password once you login by using this password.</p>"+accNumber;
 		Properties prop = System.getProperties();				

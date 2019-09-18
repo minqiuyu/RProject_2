@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatProgressBarModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatProgressBarModule, MatButtonModule, MatIconModule, MatIcon} from '@angular/material';
 // import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +55,9 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   providers: [ProfilesService, AuthService, AuthGuard, PostService],

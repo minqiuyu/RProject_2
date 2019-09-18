@@ -54,7 +54,11 @@ export class PostService implements OnInit{
     )
 
   }
-
+  likePost(id: number){
+    return this.httpServ.put(this._Url + `likePost/${id}.do`, "empty body").pipe(
+      map (res => res as any)
+    )
+  }
   addFakePosts(){
     this.posts = [
       new Post(1, 1, 'First Post', 'Hello from our social media app, {{insertNameHere}}'),
