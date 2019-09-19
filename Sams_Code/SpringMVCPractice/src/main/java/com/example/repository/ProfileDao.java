@@ -43,7 +43,7 @@ public class ProfileDao {
 	
 	public Profile selectByUserName(String userName) {
 		Query q = sesFact.getCurrentSession().createQuery("from Profile where username=:username");
-		q.setString("username", userName);
+		q.setParameter("username", userName);
 		return (Profile) q.uniqueResult();
 //		return sesFact.getCurrentSession().get(Profile.class, userName);
 	}
@@ -51,14 +51,14 @@ public class ProfileDao {
 	
 	public Profile selectByEmail(String email) {
 		Query q = sesFact.getCurrentSession().createQuery("from Profile where email=:email");
-		q.setString("email", email);
+		q.setParameter("email", email);
 		return (Profile) q.uniqueResult();
 //		return sesFact.getCurrentSession().get(Profile.class, userName);
 	}
 	
 	public List<Profile> selectByFirstName(String firstName) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = :fName?");
-		q.setString("fName", firstName);
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = :fName");
+		q.setParameter("fName", firstName);
 		return (List<Profile>) q.getResultList();
 	}
 	public List<Profile> selectAll(){

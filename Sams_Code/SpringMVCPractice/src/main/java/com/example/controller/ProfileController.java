@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.encryption.Encrypter;
 import com.example.helpers.SendEmail;
 import com.example.model.Profile;
 import com.example.repository.ProfileDao;
@@ -27,6 +27,8 @@ public class ProfileController {
 	@Autowired
 	private ProfileDao proDao;
 	
+	@Autowired
+	private Encrypter encrypter;
 	
 	//Get all profiles
 	@GetMapping("/getAllProfiles.do")
@@ -56,9 +58,10 @@ public class ProfileController {
 	@CrossOrigin("http://localhost:4200")
 	@PostMapping(value="/addProfile.do")
 	@ResponseBody
-	public void insert(@RequestBody Profile profile){
-		System.out.println(profile);
+	public HttpStatus insert(@RequestBody Profile profile){
+		
 		proDao.insert(profile);
+		return HttpStatus.ACCEPTED;
 	}
 	 
 	//select profile by ID
