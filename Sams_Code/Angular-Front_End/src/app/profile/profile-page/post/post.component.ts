@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from './post.service';
 import { AuthService } from '../../auth.service';
+import { FetchProfileService } from 'src/app/fetch-profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -10,12 +12,25 @@ import { AuthService } from '../../auth.service';
 export class PostComponent implements OnInit {
   @Input() post: any;
   isYourPost: boolean =false;
-  constructor(private postServ: PostService, private authServ: AuthService) { }
+  postAuthor: string;
+  constructor(
+    private fetchServ: FetchProfileService,
+    private postServ: PostService, private authServ: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     if(this.post.userId == this.authServ.user.userId){
       this.isYourPost=true;
     }
+
+    this.fetchServ.fetchProfileById(this.post.userId).subscribe((author)=>{
+      this.postAuthor=author.userName;
+    })
+  }
+
+  navigateById(){
+  
+    this.router.navigate(['/profiles', this.post.userId])
   }
 
   likePost(){

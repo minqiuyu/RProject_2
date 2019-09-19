@@ -2,15 +2,12 @@
 
 <div class="card text-center">
     <div class="card-header">
-      Posted by: {{post.userId}}
-      Post Id: {{post.postId}}
-      Num Likes: {{post.numLikes}}
+      <div *ngIf="isYourPost"> You </div>
+      
+      <div *ngIf="!isYourPost"> <button class="btn btn-primary" (click)="navigateById()"> By {{postAuthor}}</button>   </div>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.postTitle}}</h5>
-      <!-- <button data-toggle="collapse" class="btn btn-primary">Show Post</button> -->
-      <!-- data-target="#post-body" -->
-      <!-- <div id="post-body" class="card-text collapse"> -->
       <div id="post-body" class="card-text">
 
         <p>{{post.postBody}}</p>
@@ -19,9 +16,7 @@
 
     </div>
     <div class="card-footer text-muted">
-      SubmittedAt
-      <!-- button.btn-
-       -->
+        <h4 class="alert-heading"> Likes: {{post.numLikes}}</h4>
        <button [disabled]="isYourPost" mat-raised-button color="accent"(click)="likePost()">Like</button>
     </div>
    </div>

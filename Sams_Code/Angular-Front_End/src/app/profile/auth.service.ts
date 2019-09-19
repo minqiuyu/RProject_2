@@ -41,12 +41,13 @@ export class AuthService {
                 this.loggedIn=true;
                 this.loggingIn.next(true);
                 this.user=response;
-                this.loggedInUser.next(response);
+                // this.loggedInUser.next(response);
                 this.router.navigate(['/feed']);
             }
         }, (error)=>{
             if(error.status!=200){
-                console.log("Status is 400");
+                console.log("Ruh roh");
+                console.log(error);
                 return false;
             }
             else if(error.status===200){
