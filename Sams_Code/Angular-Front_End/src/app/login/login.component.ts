@@ -21,23 +21,11 @@ export class LoginComponent implements OnInit {
       'userName': new FormControl(null, Validators.required),
       'userPassword': new FormControl(null, Validators.required)
     })
-    console.log(this.loginForm.value)
-
   }
 
   onLogin(){
-    // this.proService.sendLoginCreds(this.username,this.password).subscribe(data => {
-    //   console.log(data);
-    // });
-    console.log(this.loginForm.value)
-    let loginSuccessful = this.auth.login(this.loginForm.value.userName, this.loginForm.value.userPassword);
+       let loginSuccessful = this.auth.login(this.loginForm.value.userName, this.loginForm.value.userPassword);
     this.loginForm.reset();
-    // if(loginSuccessful){
-    //   console.log("Succesful login")
-    //   this.router.navigate(['/feed'])
-    // } else {
-    //   console.log("Code bypassed")
-    // }
   }
 
   onLogout(){

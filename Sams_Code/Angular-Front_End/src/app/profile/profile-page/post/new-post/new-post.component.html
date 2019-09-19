@@ -12,6 +12,7 @@
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">At least 5 letters long.</span>
     <br>
+    
     <!-- contenteditable -->
     <textarea  
     #editable
@@ -23,6 +24,11 @@
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
     
+    <br>
+    <div class="form-group col-lg-4">
+            <label for="">Image</label>
+            <input formControlName="profileImage" name="profileImage" type="file" class="form-control btn btn-success">
+        </div>
     <br>
     <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.valid  || newPostForm.pristine">
 
