@@ -94,13 +94,12 @@ public class ProfileController {
 		Profile foundProfile = proDao.selectByUserName(username); // find profile of the user
 		String tempPass = SendEmail.sendMail(foundProfile.getEmail());
 		if(foundProfile.getUserPassword().equals("false")) {
-//			,HttpStatus.I_AM_A_TEAPOT
 			System.out.println("SMTP failed. Resetting password to 'false' for user: " + foundProfile.getUserName());	
 			return HttpStatus.NOT_IMPLEMENTED;
 		}
+//		String tempPass = "false";
 		foundProfile.setUserPassword(tempPass);
 		proDao.update(foundProfile.getUserId(), foundProfile); //update the atabase
-//		ResponseEntity.ok().body("Password updated and sent to: " + foundProfile.getEmail())
 		System.out.println("Password reset and sent to: " + foundProfile.getEmail());
 		return HttpStatus.OK;  //send a message to front end
 		

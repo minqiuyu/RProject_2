@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Profile } from '../profile/profile.model';
 import { ProfilesService } from '../profile/profiles.service';
-import * as CryptoJs from 'crypto-js';
+import { CryptoService } from '../crypto.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   genders: string[] = ['male','female'];
 
-  constructor(private profileServ: ProfilesService) { }
+  constructor(private profileServ: ProfilesService, private crypter: CryptoService) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -31,7 +31,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(JSON.stringify(this.registerForm.value) + " Values submitted");
+    console.log(JSON.stringify(this.registerForm.value.userPassword))
+    console.log(JSON.stringify(this.crypter.hash(this.registerForm.value.userPassword
+      )));
+      //hash the password before registering user.
+      this.registerForm.value.userPassword = this.crypter.hash(this.registerForm.value.userPassword
+        );
     this.profileServ.addProfile(this.registerForm.value).subscribe((response)=>{
       console.log("REsponse from Add profile: " + response)
     }, (error)=>{

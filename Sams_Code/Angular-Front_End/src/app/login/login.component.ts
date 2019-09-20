@@ -3,6 +3,7 @@ import { AuthService } from '../profile/auth.service';
 import { ProfilesService } from '../profile/profiles.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CryptoService } from '../crypto.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   private password: string;
   private loginForm: FormGroup;
 
-  constructor(private router: Router, private auth: AuthService, private proService: ProfilesService) { }
+  constructor(private crypter: CryptoService,
+    private router: Router, private auth: AuthService, private proService: ProfilesService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(){
+    this.loginForm.value.userPassword = this.crypter.hash(this.loginForm.value.userPassword);
        let loginSuccessful = this.auth.login(this.loginForm.value.userName, this.loginForm.value.userPassword);
     this.loginForm.reset();
   }
