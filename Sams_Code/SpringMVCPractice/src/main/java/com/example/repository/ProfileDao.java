@@ -42,23 +42,24 @@ public class ProfileDao {
 	}
 	
 	public Profile selectByUserName(String userName) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where username=:username");
-		q.setParameter("username", userName);
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where username like :username");
+		q.setParameter("username", userName + "%");
 		return (Profile) q.uniqueResult();
 //		return sesFact.getCurrentSession().get(Profile.class, userName);
 	}
 	
 	
-	public Profile selectByEmail(String email) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where email=:email");
-		q.setParameter("email", email);
-		return (Profile) q.uniqueResult();
+	public List<Profile> selectByEmail(String email) {
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where email like :email");
+		q.setParameter("email", email + "%");
+		return (List<Profile>) q.getResultList();
 //		return sesFact.getCurrentSession().get(Profile.class, userName);
 	}
 	
 	public List<Profile> selectByFirstName(String firstName) {
-		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = :fName");
-		q.setParameter("fName", firstName);
+//		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName = :fName");
+		Query q = sesFact.getCurrentSession().createQuery("from Profile where fName like :fName");
+		q.setParameter("fName", firstName + "%");
 		return (List<Profile>) q.getResultList();
 	}
 	public List<Profile> selectAll(){

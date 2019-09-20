@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Profile } from '../profile/profile.model';
 import { ProfilesService } from '../profile/profiles.service';
+import * as CryptoJs from 'crypto-js';
 
 @Component({
   selector: 'app-register',

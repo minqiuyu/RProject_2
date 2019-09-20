@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   searchForm: FormGroup;
   searchBy: any;
   searchTerm: string; 
-  profiles: Profile[];
+  profiles: any[];
   // foundE = new EventEmitter<boolean>()l
   found:boolean;
   constructor(private fetchServ: FetchProfileService) { }
@@ -41,17 +41,27 @@ export class SearchComponent implements OnInit {
       case 'username':
         this.fetchServ.fetchProfileByUserName(this.searchForm.value.searchedTerm).subscribe((data)=>{
           this.profiles.push(data);
+          // this.profiles = data;
         })
         break;
       case 'email':
           this.fetchServ.fetchProfileByEmail(this.searchForm.value.searchedTerm).subscribe((data)=>{
-            this.profiles.push(data);
+            // this.profiles.push(data);
+            if(data.length==1){ // if there's a single result, the navigate is buggy
+              this.profiles.push(data);
+            }
+            
+            this.profiles = data;
             console.log("Data from fetch by email: " + data)
           })
           break;
           case 'firstName':
               this.fetchServ.fetchProfileByFirstName(this.searchForm.value.searchedTerm).subscribe((data)=>{
-                this.profiles.push(data);
+                if(data.length==1){
+                  this.profiles.push(data);
+                }
+                this.profiles=data;
+                console.log(data)
                 console.log("Data from fetch by FN: " + data)
               })
               break;

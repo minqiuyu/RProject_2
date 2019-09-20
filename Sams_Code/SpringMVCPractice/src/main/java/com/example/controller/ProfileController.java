@@ -44,9 +44,9 @@ public class ProfileController {
 	}
 	
 	@GetMapping("/selectProfileByEmail/{email}.do")
-	public ResponseEntity<Profile> selectProfileByEmail(@PathVariable("email") String email){
-		Profile profile = proDao.selectByEmail(email);
-		return ResponseEntity.ok().body(profile);
+	public ResponseEntity<List<Profile>> selectProfileByEmail(@PathVariable("email") String email){
+		List<Profile> profiles = proDao.selectByEmail(email);
+		return ResponseEntity.ok().body(profiles);
 	}
 	
 	@GetMapping("/selectProfileByFirstName/{firstName}.do")
