@@ -1,13 +1,14 @@
 <div class="jumbotron">
 </div>
-<div class="col-lg-10container">
+<div class="col-lg-10container" style="text-align: center;">
 
     <form class="form" (ngSubmit)="onSubmit()"  
     [formGroup]='newPostForm'
     >
     <input 
+    style="display:inline-block;"
     formControlName="postTitle"
-    type="text" name='post-title' id="post-title" class="form-control col-lg-6" placeholder='post-title'  required>
+    type="text" name='post-title' id="post-title" class="form-control col-lg-8" placeholder='post-title'  required>
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postTitle').valid && newPostForm.get('postTitle').touched">At least 5 letters long.</span>
@@ -19,15 +20,15 @@
     formControlName="postBody"
     id="post-body"
     contenteditable
-    type="text" name='post-body' class='form-control' placeholder='write post here'  style="height:400px;" required></textarea>
+    type="text" name='post-body' class='form-control' placeholder='write post here'  style="height:400px; display:inline-block;" required></textarea>
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
     
     <br>
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-4" style="text-align: center;display:inline-block;">
             <label for="">Image</label>
-            <input formControlName="profileImage" name="profileImage" type="file" class="form-control btn btn-success">
+            <input style="display:inline-block;text-align:center;" formControlName="profileImage" name="profileImage" type="file" class="form-control">
         </div>
     <br>
     <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.valid  || newPostForm.pristine">
