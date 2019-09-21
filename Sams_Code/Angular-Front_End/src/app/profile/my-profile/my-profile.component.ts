@@ -4,6 +4,7 @@ import { Post } from '../profile-page/post/post.model';
 import { Profile } from 'selenium-webdriver/firefox';
 import { ProfilesService } from '../profiles.service';
 import { AuthService } from '../auth.service';
+import { S3Service } from 'src/app/s3.service';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -12,16 +13,19 @@ import { AuthService } from '../auth.service';
 export class MyProfileComponent implements OnInit {
   myPosts: Post[];
   myProfile: any;
+  image: any;
   constructor(private postServ: PostService, private profileServ: ProfilesService,
-    private auth: AuthService) { }
+    private auth: AuthService, private s3Serv: S3Service) { }
 
   ngOnInit() {
-    console.log("hello")
-
-    // this.postServ.fetchAllPosts().subscribe((data)=>{
-    //   this.myPosts = data;
-    // })
-    console.log("AUth user " + JSON.stringify(this.auth.user))
+    this.s3Serv.getImage("ig1.jpg").subscribe((data)=>{
+      // this.image
+      console.log(data)
+    }, (error)=>{
+      this.image=error.error.text;
+      console.log(error);
+    })
+  
     this.myProfile=this.auth.user
     console.log(this.myProfile.userId)
     this.postServ.fetchPostsByUserId(this.myProfile.userId).subscribe((response)=>{

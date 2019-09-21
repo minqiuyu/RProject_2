@@ -13,7 +13,7 @@
 		<context:component-scan base-package="com.example.repository"></context:component-scan>
 		<context:component-scan base-package="com.example.controller"></context:component-scan>
 		<context:component-scan base-package="com.example.encryption"></context:component-scan>
-	<!--  	<context:component-scan base-package="com.example.helpers"></context:component-scan>-->
+		<context:component-scan base-package="com.example.s3"></context:component-scan>
 		
 		<tx:annotation-driven/>
 		<mvc:annotation-driven></mvc:annotation-driven>
