@@ -3,6 +3,7 @@ import { PostService } from './post.service';
 import { AuthService } from '../../auth.service';
 import { FetchProfileService } from 'src/app/fetch-profile.service';
 import { Router } from '@angular/router';
+import { SelectService } from 'src/app/select.service';
 
 @Component({
   selector: 'app-post',
@@ -16,6 +17,7 @@ export class PostComponent implements OnInit {
   constructor(
     private fetchServ: FetchProfileService,
     private postServ: PostService, private authServ: AuthService,
+    private selectServ: SelectService,
     private router: Router) { }
 
   ngOnInit() {
@@ -29,8 +31,8 @@ export class PostComponent implements OnInit {
   }
 
   navigateById(){
-  
-    this.router.navigate(['/profiles', this.post.userId])
+    this.selectServ.foundUser = this.post.userId;
+    this.router.navigate(['/profilepage'])
   }
 
   likePost(){

@@ -5,7 +5,6 @@ import { MatProgressSpinnerModule, MatProgressBarModule, MatButtonModule, MatIco
 // import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,7 +30,6 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileListComponent,
     PageNotFoundComponent,
     SearchComponent,
     NavbarComponent,

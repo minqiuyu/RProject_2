@@ -32,27 +32,21 @@ export class SearchComponent implements OnInit {
     }
   }
   searchForProfile(f){
-    console.log(this.searchForm.value);
-    // this.proService.fetchMyProfile(1).subscribe((data)=>{
-    //   console.log("My profile: " + data);
-    // })
+ 
     this.profiles=[]
     switch(this.searchForm.value.searchCategory){ 
       case 'username':
         this.fetchServ.fetchProfileByUserName(this.searchForm.value.searchedTerm).subscribe((data)=>{
           this.profiles.push(data);
-          // this.profiles = data;
         })
         break;
       case 'email':
           this.fetchServ.fetchProfileByEmail(this.searchForm.value.searchedTerm).subscribe((data)=>{
-            // this.profiles.push(data);
             if(data.length==1){ // if there's a single result, the navigate is buggy
               this.profiles.push(data);
             }
             
             this.profiles = data;
-            console.log("Data from fetch by email: " + data)
           })
           break;
           case 'firstName':
@@ -61,14 +55,11 @@ export class SearchComponent implements OnInit {
                   this.profiles.push(data);
                 }
                 this.profiles=data;
-                console.log(data)
-                console.log("Data from fetch by FN: " + data)
               })
               break;
       case 'userId':
         this.fetchServ.fetchProfileById(this.searchForm.value.searchedTerm).subscribe((data)=>{
           this.profiles.push(data);
-          console.log(data)
         });
     }
     
@@ -82,9 +73,7 @@ export class SearchComponent implements OnInit {
       'searchedTerm': new FormControl(null, Validators.required)
     })
 
-    // this.proService.fetchProfilesFromDB().subscribe((data)=>{
-    //   this.profiles = data;
-    // })
+    
   }
 
   

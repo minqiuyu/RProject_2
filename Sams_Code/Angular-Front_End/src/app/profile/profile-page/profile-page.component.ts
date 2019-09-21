@@ -21,25 +21,36 @@ export class ProfilePageComponent implements OnInit {
    
   constructor(private route: ActivatedRoute, 
               private fetchServ: FetchProfileService,
-              private postServ: PostService
+              private postServ: PostService,
+              private selectServ: SelectService
     ) {
 
    }
 
   ngOnInit() {
-    // uses the route params to fetch the profile.
-    this.route.params
-    .subscribe(
-      (params: Params) =>{
-        this.fetchServ.fetchProfileById(params.id).subscribe((data)=>{
-          this.profile=data;
-          this.postServ.fetchPostsByUserId(this.profile.userId).subscribe((posts)=>{
-            this.posts = posts;
-          })
-        }) 
+    //uses the select service to fetch the profile.
+    this.profile = this.selectServ.foundUser;
+    this.fetchServ.fetchProfileById(this.selectServ.foundUser).subscribe((user)=>{
+      this.profile=user;
+      
+    })
+    this.postServ.fetchPostsByUserId(this.selectServ.foundUser).subscribe((posts)=>{
+      this.posts=posts;
+    })
 
-      }
-    )
+    // uses the route params to fetch the profile.
+    // this.route.params
+    // .subscribe(
+    //   (params: Params) =>{
+    //     this.fetchServ.fetchProfileById(params.id).subscribe((data)=>{
+    //       this.profile=data;
+    //       this.postServ.fetchPostsByUserId(this.profile.userId).subscribe((posts)=>{
+    //         this.posts = posts;
+    //       })
+    //     }) 
+
+    //   }
+    // )
    
    
     

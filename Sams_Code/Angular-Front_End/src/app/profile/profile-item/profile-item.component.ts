@@ -13,9 +13,12 @@ export class ProfileItemComponent implements OnInit {
   @Input() profile: Profile;
   constructor(private router: Router, private selectServ: SelectService) { }
 
+  //redirects the user to the profile list component/profile-page component.
+  //transmits the id of the selected user to make it available in the url params.
   navigateById(id: number){
-  
-    this.router.navigate(['/profiles', id])
+    this.selectServ.foundUser = id;
+    // this.router.navigate(['/profiles', id])
+    this.router.navigate(['/profilepage'])
   }
   ngOnInit() {
   }

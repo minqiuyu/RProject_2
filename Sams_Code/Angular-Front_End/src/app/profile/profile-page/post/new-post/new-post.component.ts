@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/profile/auth.service';
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css']
 })
-export class NewPostComponent implements OnInit, AfterViewInit {
+export class NewPostComponent implements OnInit {
   @ViewChild('editable',{static:true}) editable: ElementRef;
   // @ViewChild('newPostForm', {static: true}) newPostForm: NgForm;
   post: Post;
@@ -22,20 +22,11 @@ export class NewPostComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.myProfile=this.auth.user;
     this.newPostForm = new FormGroup({
-      // 'postId': new FormControl(4),
       'userId': new FormControl(this.myProfile.userId),
       'postTitle': new FormControl(null, [Validators.required, Validators.minLength(5)]),
       'postBody': new FormControl(null, Validators.required)
     });
-
-    console.log(this.newPostForm)
     }
-    ngAfterViewInit(){
-      // this.editable.nativeElement.class="large"
-      // this.editable = new MediumEditor(this.editable.nativeElement)
-  
-
-  }
 
   onSubmit(){
     this.postServ.insertPost(this.newPostForm.value).subscribe((data)=>{

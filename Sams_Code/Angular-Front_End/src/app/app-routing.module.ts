@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProfileListComponent } from './profile/profile-list/profile-list.component';
+// import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileItemComponent } from './profile/profile-item/profile-item.component';
 import { SearchComponent } from './search/search.component';
@@ -27,9 +27,10 @@ const routes: Routes = [
   {path: 'myprofile', 
   canActivate: [AuthGuard],
   component: MyProfileComponent},
-  {path: 'profiles', 
-  canActivate: [AuthGuard],
-  component: ProfileListComponent, children: [{path: ":id", component: ProfilePageComponent}]},
+  {path:'profilepage', canActivate:[AuthGuard], component:ProfilePageComponent},
+  // {path: 'profiles', 
+  // canActivate: [AuthGuard],
+  // component: ProfileListComponent, children: [{path: ":id", component: ProfilePageComponent}]},
   {path: 'login', component: LoginComponent},
   {path: 'search', 
   canActivate: [AuthGuard],
