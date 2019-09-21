@@ -51,8 +51,6 @@ export class AuthService {
                 this.loggingIn.next(true);
                 return true;
             }
-           
-            console.log(error);
         })
         return false;
     }
