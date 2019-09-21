@@ -43,7 +43,7 @@ export class AuthService {
         }, (error)=>{
             if(error.status!=200){
                 console.log("Ruh roh");
-                console.log(error);
+                console.log(error.status);
                 return false;
             }
             else if(error.status===200){

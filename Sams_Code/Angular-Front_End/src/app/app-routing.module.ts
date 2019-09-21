@@ -17,7 +17,6 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 const routes: Routes = [
 
-  // {path: 'profile', component: ProfilePageComponent, children: [{path: ":username", component:ProfilePageComponent}]},
   {path: "editProfile", component: EditprofileComponent, canActivate: [AuthGuard]},
   {path: 'feed', component: FeedComponent},
   {path: 'register', component: RegisterComponent},
@@ -28,7 +27,6 @@ const routes: Routes = [
   {path: 'myprofile', 
   canActivate: [AuthGuard],
   component: MyProfileComponent},
-  // {path:'profilepage', component: ProfilePageComponent, children: [{path: ":username", component: ProfilePageComponent}]},
   {path: 'profiles', 
   canActivate: [AuthGuard],
   component: ProfileListComponent, children: [{path: ":id", component: ProfilePageComponent},{path:"*", component: PageNotFoundComponent}]},
