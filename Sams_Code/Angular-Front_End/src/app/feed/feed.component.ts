@@ -11,7 +11,7 @@ import { AuthService } from '../profile/auth.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit {
   // post: Post = new Post(1,1,"First Post!","First posts body", 4, [1]);
   posts: Post[];
   testDataAll: any;
@@ -23,29 +23,13 @@ export class FeedComponent implements OnInit, OnDestroy {
     private auth: AuthService) { }
 
   ngOnInit() {
-    // this.posts = this.postService.getPosts();
+    //subscribe to fetchAllPosts in order to fetch all posts for the feed
     this.postSubsc = this.postService.fetchAllPosts().subscribe((data)=>{
-      console.log("data: " + JSON.stringify(data));
       this.posts = data;
-      this.testDataAll=JSON.stringify(data);
-      this.auth.loggedInUser.subscribe((user)=>{
-        this.loggedInUser=user;
-        this.auth.user=user;
-        console.log("Logged in user in feed: " + this.loggedInUser)
-      })
     });
 
-    this.postService.fetchOnePost(0).subscribe((data)=>{
-      console.log("data " +JSON.stringify(data));
-      this.testDataOne = JSON.stringify(data);
-    })
+  
 
   
   }
-
-  ngOnDestroy(){
-    // console.log(this.loggedInUser);
-    this.auth.loggedInUser.next(this.loggedInUser);
-  }
-
 }

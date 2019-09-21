@@ -11,19 +11,13 @@ import { FetchProfileService } from 'src/app/fetch-profile.service';
   styleUrls: ['./profile-list.component.css']
 })
 export class ProfileListComponent implements OnInit {
-  profiles: Profile[];
-  selectedProfile = new EventEmitter<string>();
+
 
  
-  constructor(private route: ActivatedRoute, private proService: ProfilesService,
-    private fetchServ:FetchProfileService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.profiles = this.proService.getProfiles();
-     this.fetchServ.fetchProfilesFromDB().subscribe((data)=>{
-     
-      this.profiles = data;
-    });
+
 
   }
 

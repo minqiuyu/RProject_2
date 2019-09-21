@@ -33,15 +33,11 @@ export class AuthService {
   login(username: string, password: string):boolean {
         //testing this
         let credentials = new LoginCredentials(username, password);
-        console.log(username, password)
-        // {'userName': username, 'userPassword': password}
         this.httpServ.post(this._Url + "login.do", credentials,this.httpOptions).subscribe((response)=>{
-            console.log("Response from login is: " + JSON.stringify(response));
             if(response!=null){
                 this.loggedIn=true;
                 this.loggingIn.next(true);
                 this.user=response;
-                // this.loggedInUser.next(response);
                 this.router.navigate(['/feed']);
             }
         }, (error)=>{
@@ -58,7 +54,6 @@ export class AuthService {
            
             console.log(error);
         })
-        console.log("Logged in: " + this.loggedIn)
         return false;
     }
 
