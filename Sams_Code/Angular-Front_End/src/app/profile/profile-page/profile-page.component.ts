@@ -5,6 +5,7 @@ import { ProfilesService } from '../profiles.service';
 import { PostService } from './post/post.service';
 import { SelectService } from 'src/app/select.service';
 import { FetchProfileService } from 'src/app/fetch-profile.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -20,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
    
   constructor(private route: ActivatedRoute, 
               private fetchServ: FetchProfileService,
-              private postServ: PostService,
+              private postServ: PostService
     ) {
 
    }
@@ -39,10 +40,7 @@ export class ProfilePageComponent implements OnInit {
 
       }
     )
-    // this.selectServ.selectedProfile.subscribe((data)=>{
-    //   this.profile=data;
-    //   console.log("Data from subject of the select service: " + data)
-    // })
+   
    
     
   }
