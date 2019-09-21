@@ -24,32 +24,9 @@ export class ProfilePageComponent implements OnInit {
     ) {
 
    }
-   loopProfiles(username: string){
-    let selectedProfile: Profile;
-    for(let p of this.profiles){
-      if(p.getUsername() == username){
-        selectedProfile = p;
-      }
-    }
 
-    return selectedProfile;
-   }
-  fetchProfile(){
-        this.route.params
-        .subscribe(
-          (params: Params) =>{
-            this.profile = this.loopProfiles(params.username) // loops through the profiles from service to find the one matching the url params
-          }
-        )
-      }
-
-  fetchAllPostsFromDB(){
-    this.postServ.fetchAllPosts().subscribe((data)=>{
-      this.posts = data;
-    })
-  }
   ngOnInit() {
-    console.log(this.route.params);
+    // uses the route params to fetch the profile.
     this.route.params
     .subscribe(
       (params: Params) =>{

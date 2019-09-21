@@ -29,7 +29,7 @@ const routes: Routes = [
   component: MyProfileComponent},
   {path: 'profiles', 
   canActivate: [AuthGuard],
-  component: ProfileListComponent, children: [{path: ":id", component: ProfilePageComponent},{path:"*", component: PageNotFoundComponent}]},
+  component: ProfileListComponent, children: [{path: ":id", component: ProfilePageComponent}]},
   {path: 'login', component: LoginComponent},
   {path: 'search', 
   canActivate: [AuthGuard],
