@@ -5,6 +5,8 @@ import { Profile } from 'selenium-webdriver/firefox';
 import { ProfilesService } from '../profiles.service';
 import { AuthService } from '../auth.service';
 import { S3Service } from 'src/app/s3.service';
+import { UploadFileService } from './upload-file.service';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -14,11 +16,16 @@ export class MyProfileComponent implements OnInit {
   myPosts: Post[];
   myProfile: any;
   image: any;
+    //from grokonozen
+    selectedFiles: FileList;
+    currentFileUpload: File;
+
   constructor(private postServ: PostService, private profileServ: ProfilesService,
-    private auth: AuthService, private s3Serv: S3Service) { }
+    private auth: AuthService, private s3Serv: S3Service
+    , private uploadService: UploadFileService) { }
 
   ngOnInit() {
-    this.s3Serv.getImage("26-Raichu.png").subscribe((data)=>{
+    this.s3Serv.getImage("Sam.jpg").subscribe((data)=>{
       // this.image
       console.log(data)
     }, (error)=>{
@@ -32,17 +39,26 @@ export class MyProfileComponent implements OnInit {
       this.myPosts = response;
 
     })
-    // this.auth.loggedInUser.subscribe((profile)=>{
-    //   this.myProfile=profile;
-    //   this.myProfile=this.auth.user;
-    //   console.log(this.myProfile)
-    // })
-
-    // this.profileServ.fetchMyProfile(2).subscribe((data)=>{
-    //   this.myProfile = data;
-    //   console.log("my profile " + this.myProfile)
-
-    // })
   }
+
+   //from grokonozen
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload() {
+
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+
+    this.selectedFiles = undefined;
+  }
+
+
+
 
 }

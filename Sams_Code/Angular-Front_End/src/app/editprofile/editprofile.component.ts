@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ProfilesService } from '../profile/profiles.service';
 import { AuthService } from '../profile/auth.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editprofile',
@@ -12,9 +11,12 @@ export class EditprofileComponent implements OnInit {
   @ViewChild('editForm', {static:true}) editForm;
   profile: any;
   newProfile: any = {};
+
+
   // editForm: FormGroup;
   genders = ['male','female'];
-  constructor(private auth: AuthService, private proServ: ProfilesService) { }
+  constructor(private auth: AuthService, private proServ: ProfilesService,
+) { }
 
   ngOnInit() {
     this.profile = this.auth.user; 
@@ -36,4 +38,5 @@ export class EditprofileComponent implements OnInit {
     })
   }
 
+  
 }
