@@ -1,0 +1,358 @@
+2019-09-22 08:48:48 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 08:48:48 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 08:48:48 EDT 2019]; root of context hierarchy
+2019-09-22 08:48:48 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 08:48:50 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 08:48:50 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 08:48:50 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 08:48:50 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 08:48:51 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 08:49:03 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:48:48 EDT 2019]; root of context hierarchy
+2019-09-22 08:49:03 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:48:48 EDT 2019]; root of context hierarchy
+2019-09-22 08:49:03 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@664083f6] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 08:49:03 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 15741 ms
+2019-09-22 08:49:33 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 08:49:33 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:49:33 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:49:33 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 08:49:34 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 57 ms
+2019-09-22 08:49:34 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 08:50:55 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:49:33 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:50:55 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 08:48:48 EDT 2019]; root of context hierarchy
+2019-09-22 08:50:59 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 08:50:59 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 08:50:59 EDT 2019]; root of context hierarchy
+2019-09-22 08:50:59 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 08:51:01 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 08:51:01 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 08:51:01 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 08:51:01 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 08:51:03 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 08:51:14 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 08:51:15 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:50:59 EDT 2019]; root of context hierarchy
+2019-09-22 08:51:15 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:50:59 EDT 2019]; root of context hierarchy
+2019-09-22 08:51:15 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@664083f6] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 08:51:15 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 15636 ms
+2019-09-22 08:51:28 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 08:51:28 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:51:28 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:51:28 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 08:51:28 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 58 ms
+2019-09-22 08:51:29 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 08:52:51 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:51:28 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:52:51 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 08:50:59 EDT 2019]; root of context hierarchy
+2019-09-22 08:52:54 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 08:52:54 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 08:52:54 EDT 2019]; root of context hierarchy
+2019-09-22 08:52:55 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 08:52:56 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 08:52:56 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 08:52:56 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 08:52:56 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 08:52:57 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 08:53:08 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 08:53:09 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:52:54 EDT 2019]; root of context hierarchy
+2019-09-22 08:53:09 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:52:54 EDT 2019]; root of context hierarchy
+2019-09-22 08:53:09 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@425df18] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 08:53:09 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 14684 ms
+2019-09-22 08:53:17 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 08:53:17 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:53:17 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:53:17 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 08:53:17 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 50 ms
+2019-09-22 08:53:18 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 08:56:25 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:53:17 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:56:25 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 08:52:54 EDT 2019]; root of context hierarchy
+2019-09-22 08:56:28 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 08:56:28 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 08:56:28 EDT 2019]; root of context hierarchy
+2019-09-22 08:56:28 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 08:56:29 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 08:56:30 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 08:56:30 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 08:56:30 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 08:56:31 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 08:56:42 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:56:28 EDT 2019]; root of context hierarchy
+2019-09-22 08:56:42 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:56:28 EDT 2019]; root of context hierarchy
+2019-09-22 08:56:42 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@5102f9c0] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 08:56:42 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 14645 ms
+2019-09-22 08:57:20 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 08:57:20 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:57:20 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:57:20 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 08:57:20 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 55 ms
+2019-09-22 08:57:33 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 08:59:14 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:57:20 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:59:14 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 08:56:28 EDT 2019]; root of context hierarchy
+2019-09-22 08:59:19 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 08:59:19 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 08:59:19 EDT 2019]; root of context hierarchy
+2019-09-22 08:59:19 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 08:59:21 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 08:59:21 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 08:59:21 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 08:59:21 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 08:59:22 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 08:59:34 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:59:19 EDT 2019]; root of context hierarchy
+2019-09-22 08:59:34 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 08:59:19 EDT 2019]; root of context hierarchy
+2019-09-22 08:59:34 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@39a09c0] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 08:59:34 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 15796 ms
+2019-09-22 08:59:39 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 08:59:39 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:59:39 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 08:59:39 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 08:59:39 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 64 ms
+2019-09-22 08:59:41 INFO  AspectBaby:24 - One post liked.
+2019-09-22 08:59:52 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 08:59:52 INFO  AspectBaby:18 - User logged in
+2019-09-22 09:07:53 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 08:59:39 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:07:53 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 08:59:19 EDT 2019]; root of context hierarchy
+2019-09-22 09:07:57 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 09:07:58 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 09:07:58 EDT 2019]; root of context hierarchy
+2019-09-22 09:07:58 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 09:07:59 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 09:08:00 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 09:08:00 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 09:08:00 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 09:08:01 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 09:08:13 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:07:58 EDT 2019]; root of context hierarchy
+2019-09-22 09:08:13 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:07:58 EDT 2019]; root of context hierarchy
+2019-09-22 09:08:13 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4b808427] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 09:08:13 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 15907 ms
+2019-09-22 09:09:02 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 09:09:02 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:09:02 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:09:02 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 09:09:02 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 69 ms
+2019-09-22 09:09:03 INFO  AspectBaby:44 - One post added.
+2019-09-22 09:09:32 INFO  AspectBaby:34 - One profile updated
+2019-09-22 09:09:47 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 09:14:14 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:09:02 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:14:14 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 09:07:58 EDT 2019]; root of context hierarchy
+2019-09-22 09:14:19 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 09:14:19 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 09:14:19 EDT 2019]; root of context hierarchy
+2019-09-22 09:14:19 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 09:14:21 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 09:14:21 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 09:14:21 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 09:14:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 09:14:23 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 09:14:35 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:14:19 EDT 2019]; root of context hierarchy
+2019-09-22 09:14:35 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:14:19 EDT 2019]; root of context hierarchy
+2019-09-22 09:14:36 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@445b4594] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 09:14:36 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 16739 ms
+2019-09-22 09:14:47 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 09:14:47 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:14:47 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:14:47 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 09:14:47 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 57 ms
+2019-09-22 09:14:48 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2019-09-22 09:14:48 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:48 INFO  AspectBaby:18 - User logged in
+2019-09-22 09:14:49 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:49 - All posts fetched for the feed.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:50 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:14:51 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:46 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:46 INFO  AspectBaby:59 - Posts for user retrieved.
+2019-09-22 09:15:46 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:15:47 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:06 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:06 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:19 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:19 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:19 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:19 INFO  AspectBaby:59 - Posts for user retrieved.
+2019-09-22 09:16:20 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:20 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:20 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:20 INFO  AspectBaby:54 - Profiles searched.
+2019-09-22 09:16:48 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:14:47 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:16:48 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 09:14:19 EDT 2019]; root of context hierarchy
+2019-09-22 09:16:51 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 09:16:51 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 09:16:51 EDT 2019]; root of context hierarchy
+2019-09-22 09:16:51 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 09:16:53 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 09:16:53 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 09:16:53 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 09:16:53 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 09:16:54 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/login.do],methods=[POST]}" onto public com.example.model.Profile com.example.controller.LoginController.login(com.example.helpers.LoginCredentials)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updatePosts.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.update(com.example.model.Post)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/deletePost],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.delete(com.example.model.Post)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Post>> com.example.controller.PostController.list()
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addPost.do],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.example.controller.PostController.insert(com.example.model.Post)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/postsByUser/{userId}],methods=[GET]}" onto public java.util.List<com.example.model.Post> com.example.controller.PostController.getPostsByUserId(int)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/likePost/{id}.do],methods=[PUT]}" onto public com.example.model.Post com.example.controller.PostController.likePost(int)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/allPosts/{id}],methods=[GET]}" onto public com.example.model.Post com.example.controller.PostController.getPostById(int)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/getAllProfiles.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.list()
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/addProfile.do],methods=[POST]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.insert(com.example.model.Profile)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByUsername/{userName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectProfileByUserName(java.lang.String)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByFirstName/{firstName}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByFirstName(java.lang.String)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByEmail/{email}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<com.example.model.Profile>> com.example.controller.ProfileController.selectProfileByEmail(java.lang.String)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/selectProfileByID/{id}.do],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.example.model.Profile> com.example.controller.ProfileController.selectById(int)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/resetPassword/{username}],methods=[PUT]}" onto public org.springframework.http.HttpStatus com.example.controller.ProfileController.resetPassword(java.lang.String,com.example.model.Profile)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/updateProfile/{id}],methods=[PUT]}" onto public com.example.model.Profile com.example.controller.ProfileController.updateAndReturn(int,com.example.model.Profile)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[PUT]}" onto public java.lang.String com.example.s3.s3controller.createSignedPutUrl(java.lang.String)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerMapping:547 - Mapped "{[/s3/{fileName}],methods=[GET]}" onto public java.lang.String com.example.s3.s3controller.createSignedGetUrl(java.lang.String)
+2019-09-22 09:17:06 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:16:51 EDT 2019]; root of context hierarchy
+2019-09-22 09:17:06 INFO  RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Sun Sep 22 09:16:51 EDT 2019]; root of context hierarchy
+2019-09-22 09:17:06 INFO  HibernateTransactionManager:378 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@73c26ce3] of Hibernate SessionFactory for HibernateTransactionManager
+2019-09-22 09:17:06 INFO  ContextLoader:310 - Root WebApplicationContext: initialization completed in 15348 ms
+2019-09-22 09:17:33 INFO  DispatcherServlet:494 - FrameworkServlet 'dispatcher': initialization started
+2019-09-22 09:17:33 INFO  XmlWebApplicationContext:590 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:17:33 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:17:33 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2019-09-22 09:17:33 INFO  DispatcherServlet:509 - FrameworkServlet 'dispatcher': initialization completed in 75 ms
+2019-09-22 09:17:35 INFO  AspectBaby:29 - One profile added
+2019-09-22 09:24:00 INFO  XmlWebApplicationContext:993 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Sep 22 09:17:33 EDT 2019]; parent: Root WebApplicationContext
+2019-09-22 09:24:00 INFO  XmlWebApplicationContext:993 - Closing Root WebApplicationContext: startup date [Sun Sep 22 09:16:51 EDT 2019]; root of context hierarchy
+2019-09-22 09:24:03 INFO  ContextLoader:270 - Root WebApplicationContext: initialization started
+2019-09-22 09:24:03 INFO  XmlWebApplicationContext:590 - Refreshing Root WebApplicationContext: startup date [Sun Sep 22 09:24:03 EDT 2019]; root of context hierarchy
+2019-09-22 09:24:03 INFO  XmlBeanDefinitionReader:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2019-09-22 09:24:05 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2019-09-22 09:24:05 INFO  Version:45 - HHH000412: Hibernate Core {5.2.17.Final}
+2019-09-22 09:24:05 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2019-09-22 09:24:06 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-09-22 09:24:07 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect

@@ -1,6 +1,7 @@
 package com.example.s3;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.amazonaws.HttpMethod;
 
+@CrossOrigin
 @RestController
 public class s3controller {
 
@@ -27,5 +29,7 @@ public class s3controller {
 		// logic to restrict who can get signed urls based off the filename
 		return s3Util.createSignedUrl(fileName, HttpMethod.GET);
 	}
+	
+	
 
 }

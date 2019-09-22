@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
       'lName': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'profileImage': new FormControl(null),
+      'imagePath': new FormControl(null),
       'city': new FormControl(null, Validators.required),
       'gender': new FormControl('male', Validators.required),
       // 'hobbies': new FormArray([])
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     console.log(this.registerForm.value.profileImage)
-      this.S3Serv.putImage(this.registerForm.value.profileImage).subscribe((image)=>{
+      this.S3Serv.putImage(this.registerForm.value.profileImage, this.registerForm.value.imagePath).subscribe((image)=>{
         console.log(image)
       }, (error)=>{
         console.log(error);

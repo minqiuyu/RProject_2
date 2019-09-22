@@ -207,6 +207,20 @@ public class Profile {
 		this.email = email;
 	}
 
+	public Profile(int userId, String userName, String userPassword, String fName, String lName, String gender,
+			String profileImage, String city, String email) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.fName = fName;
+		this.lName = lName;
+		this.gender = gender;
+		this.profileImage = profileImage;
+		this.city = city;
+		this.email = email;
+	}
+
 //	public Profile(int userId, String userName, String fName, String lName, String email) {
 //		super();
 //		this.userId = userId;

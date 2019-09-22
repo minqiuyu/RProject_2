@@ -62,7 +62,8 @@
                 </div>
             <div class="form-group">
                     <label for="">Profile Image</label>
-                    <input formControlName="profileImage" name="profileImage" type="file">
+                    <input formControlName="profileImage" name="profileImage" type="text">
+                    <input formControlName="imagePath" name="imagePath" type="file">
                 </div>
                 <input type="submit" class='btn btn-primary' [disabled]="registerForm.invalid">
     </form>

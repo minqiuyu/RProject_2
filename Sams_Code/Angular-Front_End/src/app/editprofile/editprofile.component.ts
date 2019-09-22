@@ -22,6 +22,7 @@ export class EditprofileComponent implements OnInit {
     this.newProfile.userPassword=this.profile.userPassword;
     this.newProfile.gender = this.profile.gender;
     this.newProfile.dob = this.profile.dob;
+
    }
   
 
