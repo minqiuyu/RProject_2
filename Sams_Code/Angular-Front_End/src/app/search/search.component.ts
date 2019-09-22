@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   found:boolean;
   constructor(private fetchServ: FetchProfileService) { }
   // private proService: ProfilesService
+
   noProfilesFound(){
     if(this.profiles== undefined || this.profiles == []){
       this.found = false;
@@ -61,6 +62,17 @@ export class SearchComponent implements OnInit {
         this.fetchServ.fetchProfileById(this.searchForm.value.searchedTerm).subscribe((data)=>{
           this.profiles.push(data);
         });
+        break;
+      case 'all':
+          this.fetchServ.fetchProfilesFromDB().subscribe((profiles)=>{
+            this.profiles = profiles;
+          })
+          break;
+      default: 
+      this.fetchServ.fetchProfilesFromDB().subscribe((profiles)=>{
+        this.profiles = profiles;
+      })
+      break;
     }
     
     
