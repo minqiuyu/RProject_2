@@ -18,9 +18,9 @@
     <textarea  
     #editable
     formControlName="postBody"
+    
     id="post-body"
-    contenteditable
-    type="text" name='post-body' class='form-control' placeholder='write post here'  style="height:400px; display:inline-block;" required></textarea>
+    type="text" name='post-body' class='form-control col-lg-8' placeholder='write post here'  style="width:600px; height:400px; display:inline-block;" required></textarea>
     <br>
     <span class="help-block alert alert-warning" 
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
