@@ -25,7 +25,7 @@ export class MyProfileComponent implements OnInit {
     , private uploadService: UploadFileService) { }
 
   ngOnInit() {
-    this.s3Serv.getImage("Sam.jpg").subscribe((data)=>{
+    this.s3Serv.getImage(this.auth.user.userName).subscribe((data)=>{
       // this.image
       console.log(data)
     }, (error)=>{

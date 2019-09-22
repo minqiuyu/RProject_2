@@ -6,6 +6,7 @@ import { PostService } from './post/post.service';
 import { SelectService } from 'src/app/select.service';
 import { FetchProfileService } from 'src/app/fetch-profile.service';
 import { AuthService } from '../auth.service';
+import { S3Service } from 'src/app/s3.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -18,11 +19,13 @@ export class ProfilePageComponent implements OnInit {
   profiles: any;
   username: string;
   testProfile: Profile;
+  image;
    
   constructor(private route: ActivatedRoute, 
               private fetchServ: FetchProfileService,
               private postServ: PostService,
-              private selectServ: SelectService
+              private selectServ: SelectService,
+              private s3Serv: S3Service
     ) {
 
    }
@@ -32,6 +35,13 @@ export class ProfilePageComponent implements OnInit {
     this.profile = this.selectServ.foundUser;
     this.fetchServ.fetchProfileById(this.selectServ.foundUser).subscribe((user)=>{
       this.profile=user;
+
+    this.s3Serv.getImage(this.profile.userName).subscribe((data)=>{
+      console.log(data)
+    },(error)=>{
+      this.image = error.error.text;
+    })
+
       
     })
     this.postServ.fetchPostsByUserId(this.selectServ.foundUser).subscribe((posts)=>{

@@ -5,6 +5,7 @@
     <form class="form" (ngSubmit)="onSubmit()"  
     [formGroup]='newPostForm'
     >
+    <!-- <button class="btn btn-primary"> Voice to Text </button> -->
     <input 
     style="display:inline-block;"
     formControlName="postTitle"
@@ -26,12 +27,12 @@
     *ngIf="!newPostForm.get('postBody').valid && newPostForm.get('postBody').touched">Required field.</span>
     
     <br>
-    <div class="form-group col-lg-4" style="text-align: center;display:inline-block;">
+    <!-- <div class="form-group col-lg-4" style="text-align: center;display:inline-block;">
             <label for="">Image</label>
             <input style="display:inline-block;text-align:center;" formControlName="profileImage" name="profileImage" type="file" class="form-control">
         </div>
-    <br>
-    <input type="submit" value="Post" class="btn btn-success col-lg-5" [disabled]="!newPostForm.valid  || newPostForm.pristine">
+    <br> -->
+    <input type="submit" value="Post" class="btn btn-success col-lg-4" [disabled]="!newPostForm.valid  || newPostForm.pristine">
 
 </form>
 </div>
