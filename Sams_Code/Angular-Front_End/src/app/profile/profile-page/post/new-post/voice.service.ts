@@ -6,8 +6,8 @@
 // export class VoiceService {
    
 //     message = document.querySelector('#message');
-//      SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-//      SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+//      SpeechRecognition = SpeechRecognition;
+//      SpeechGrammarList = SpeechGrammarList;
 //      grammar = '#JSGF V1.0;'
 //      recognition = new SpeechRecognition();
 //      speechRecognitionList = new SpeechGrammarList();

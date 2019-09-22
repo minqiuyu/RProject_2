@@ -1,11 +1,11 @@
 <div class="jumbotron">
 </div>
 <div class="col-lg-10container" style="text-align: center;">
+    <button class="btn btn-primary" id="clickVoice"> Voice to Text </button>
 
     <form class="form" (ngSubmit)="onSubmit()"  
     [formGroup]='newPostForm'
     >
-    <!-- <button class="btn btn-primary"> Voice to Text </button> -->
     <input 
     style="display:inline-block;"
     formControlName="postTitle"
