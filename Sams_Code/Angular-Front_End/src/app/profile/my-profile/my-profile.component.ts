@@ -18,7 +18,7 @@ export class MyProfileComponent implements OnInit {
     private auth: AuthService, private s3Serv: S3Service) { }
 
   ngOnInit() {
-    this.s3Serv.getImage("ig1.jpg").subscribe((data)=>{
+    this.s3Serv.getImage("26-Raichu.png").subscribe((data)=>{
       // this.image
       console.log(data)
     }, (error)=>{

@@ -9,16 +9,9 @@ export class S3Service {
   // uploadImage: any;
   constructor(private http: HttpClient) { }
 
-  // putImage(){
-  //   this.http.put('http://localhost:9005/SpringMVCPractice/', this.uploadImage).subscribe((data)=>{
-  //     console.log('response')
-  //     console.log(data)
-
-  //   },(error)=>{
-  //     console.log(error)
-      
-  //   })
-  // }
+  putImage(uploadImage){
+    return this.http.put('http://localhost:9005/SpringMVCPractice/s3/', uploadImage).pipe(res => res as any)
+  }
   getImage(downloadImage: any){
     return this.http.get('http://localhost:9005/SpringMVCPractice/s3/' + downloadImage).pipe(res => res as any)
 

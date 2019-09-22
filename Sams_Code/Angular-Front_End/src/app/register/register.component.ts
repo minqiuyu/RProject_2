@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Profile } from '../profile/profile.model';
 import { ProfilesService } from '../profile/profiles.service';
 import { CryptoService } from '../crypto.service';
+import { S3Service } from '../s3.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   genders: string[] = ['male','female'];
 
-  constructor(private profileServ: ProfilesService, private crypter: CryptoService) { }
+  constructor(private profileServ: ProfilesService, private crypter: CryptoService,
+   private S3Serv: S3Service) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -31,9 +33,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(JSON.stringify(this.registerForm.value.userPassword))
-    console.log(JSON.stringify(this.crypter.hash(this.registerForm.value.userPassword
-      )));
+    console.log(this.registerForm.value.profileImage)
+      this.S3Serv.putImage(this.registerForm.value.profileImage).subscribe((image)=>{
+        console.log(image)
+      }, (error)=>{
+        console.log(error);
+      })  
       //hash the password before registering user.
       this.registerForm.value.userPassword = this.crypter.hash(this.registerForm.value.userPassword
         );
@@ -42,8 +47,7 @@ export class RegisterComponent implements OnInit {
     }, (error)=>{
       console.log("Error, ruh roh! " + JSON.stringify(error));
     })
-    // let profile: Profile = new Profile(this.registerForm.value.username);
-    // alert("New partial profile added! " + JSON.stringify(profile));
+   
     this.registerForm.reset();
   }
 
