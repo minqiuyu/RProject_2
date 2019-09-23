@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, OnChanges } from '@angular/core';
 import { ProfilesService } from '../profile/profiles.service';
 import { Profile } from '../profile/profile.model';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -10,19 +10,22 @@ import { FetchProfileService } from '../fetch-profile.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnChanges {
   //template driven form
-  // @ViewChild('searchForm', {static: true}) searchForm: NgForm;
-
   searchForm: FormGroup;
   searchBy: any;
   searchTerm: string; 
   profiles: any[];
-  // foundE = new EventEmitter<boolean>()l
   found:boolean;
-  constructor(private fetchServ: FetchProfileService) { }
-  // private proService: ProfilesService
 
+  
+  constructor(private fetchServ: FetchProfileService) { }
+  ngOnChanges() {
+    this.logValue();
+  }
+  logValue(){
+    console.log(this.searchForm.value.searchCategory)
+  }
   noProfilesFound(){
     if(this.profiles== undefined || this.profiles == []){
       this.found = false;

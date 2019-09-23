@@ -19,3 +19,15 @@
   .form-row {
     text-align: center;
   }
+
+  .jumbotron {
+    background-color: white;
+    border-width: thick;
+  }
+#overrideBootstrap {
+  border-color: red;
+}
+
+.border {
+  border: 3px solid rgba(255, 0, 0, 0.79)!important;
+}

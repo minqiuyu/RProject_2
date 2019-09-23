@@ -1,6 +1,9 @@
-    <div class="container-fluid col-lg-12" style="text-align: center;">
-        <div class="jumbotron">
+    <div id="overrideBootstrap" class="container-fluid col-lg-12" style="text-align: center;">
+        <div class="jumbotron border">
             Enter your search criteria below.
+            <li>All searches are case-sensitive</li>
+            <li>Username searches must match exactly.</li>
+            <li>Email and first name searches can be partial.</li>
         </div>
         <div class="row form-row col-lg-12">
 
@@ -12,14 +15,14 @@
                         <option value="username">username</option>
                         <option value="email">email</option>
                         <option value="firstName">first name</option>
-                        <option value="userId"> user ID</option>
+                        <!-- <option value="userId"> user ID</option> -->
 
                         
                         
                     </select>
                     <span class="help-block alert alert-warning"
                     *ngIf="!searchForm.get('searchCategory').valid && searchForm.get('searchCategory').touched">Please select an option.</span>
-                    <input formControlName='searchedTerm' type="text"  name="searchTerm" class="form-control" placeholder="Search here"   required>
+                    <input formControlName='searchedTerm' type="text"  name="searchTerm" class="form-control" placeholder="Searches are case sensitive."   required>
                     <span class="help-block alert alert-warning" 
                     *ngIf="!searchForm.get('searchedTerm').valid && searchForm.get('searchedTerm').touched">Please enter valid search criteria.</span>
                     <br>

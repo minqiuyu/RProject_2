@@ -3,11 +3,11 @@
         <div class="col-lg-12" style="display:inline-block;">
             <div class="card">
                <div class="card-title">
-                    <p>User ID: {{profile.userId}} </p>
-                    <p> {{profile.userName}}'s profile </p>
+                    <!-- <p>User ID: {{profile.userId}} </p> -->
+                    <p> {{profile.userName}} </p>
             </div> 
                 <div class="card-body">
-                    <img [src]="image" alt="" style="width: 300px; height: 300px;">
+                    <img [src]="image" alt="" class="rounded-circle" style="width: 200px; height: 200px;">
                     <p> {{profile.fName}}</p>
                     <p> {{profile.lName}}</p>
                     <p> {{profile.email}}</p> 
