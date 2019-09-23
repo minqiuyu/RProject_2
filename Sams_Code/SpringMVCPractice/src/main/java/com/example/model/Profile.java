@@ -11,7 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+/**
+ * This is the Profile model class creates Profile table. 
+ * It has constructors, getters and setters to assign the values.
+ * @author Sam, Lucnel, Niroj, Jimmy 
+ * 
+ * Profile table has fields which holds user's personal information including user name and password.
+ * The user ID will be incremented automatically with the use of @GeneratedValue annotation.
+ *
+ */
 @Entity
 @Table(name = "PROFILE")
 public class Profile {
@@ -58,6 +66,15 @@ public class Profile {
 		
 	}
 
+	/**
+	 * Constructs and initializes the values for variables.
+	 * @param userName      Passing User name value.
+	 * @param userPassword  Passing the password value
+	 * @param fName         Passing the first name of the user.
+	 * @param lName			Passing the last name of the user.
+	 * @param gender		Passing the gender of the user.
+	 * @param email			Passing the email id of the user.
+	 */
 	public Profile(String userName, String userPassword, String fName, String lName, String gender, String email) {
 		super();
 		this.userName = userName;
@@ -220,18 +237,5 @@ public class Profile {
 		this.city = city;
 		this.email = email;
 	}
-
-//	public Profile(int userId, String userName, String fName, String lName, String email) {
-//		super();
-//		this.userId = userId;
-//		this.userName = userName;
-//		this.fName = fName;
-//		this.lName = lName;
-//		this.email = email;
-//	}
-//	
-	
-	
-
 	
 }

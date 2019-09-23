@@ -20,6 +20,14 @@ import com.example.model.Profile;
 import com.example.repository.ProfileDao;
 
 
+/**
+ * ProfileController is responsible for connection between front end and back end. 
+ *
+ * @author IBM
+ * It is passing the request parameters to Dao Class methods and returning the data to front end.
+ * @CrossOrigin is used to handle the request from different origins. 
+ */
+
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProfileController {
@@ -30,25 +38,46 @@ public class ProfileController {
 	@Autowired
 	private Encrypter encrypter;
 	
-	//Get all profiles
+	/**
+	 * Mapping with getting all profiles method.
+	 * @return  Return a list of profiles.
+	 */
+
 	@GetMapping("/getAllProfiles.do")
 	public ResponseEntity<List<Profile>> list(){
 		List<Profile>Plist = proDao.selectAll();
 		return ResponseEntity.ok().body(Plist);
 	}
 	
+
+	/**
+	 * Mapping with select by user name method.
+	 * @param userName    Passing user name as a parameter.
+	 * @return     Returning profile of the specific user.
+	 */		
 	@GetMapping("/selectProfileByUsername/{userName}.do")
 	public ResponseEntity<Profile> selectProfileByUserName(@PathVariable("userName") String userName){
 		Profile profile = proDao.selectByUserName(userName);
 		return ResponseEntity.ok().body(profile);
 	}
 	
+	/**
+	 * 
+	 * Mapping with select by email method.
+	 * @param email    Passing email id as a parameter.
+	 * @return     Returning profile of the specific user.
+	 */
 	@GetMapping("/selectProfileByEmail/{email}.do")
 	public ResponseEntity<List<Profile>> selectProfileByEmail(@PathVariable("email") String email){
 		List<Profile> profiles = proDao.selectByEmail(email);
 		return ResponseEntity.ok().body(profiles);
 	}
 	
+	/**
+	 * Mapping with the select by first name method.
+	 * @param firstName   Passing first name as a parameter.
+	 * @return    Return a list of profiles.
+	 */
 	@GetMapping("/selectProfileByFirstName/{firstName}.do")
 	public ResponseEntity<List<Profile>> selectProfileByFirstName(@PathVariable("firstName") String firstName){
 		List<Profile> profiles = proDao.selectByFirstName(firstName);
@@ -64,20 +93,17 @@ public class ProfileController {
 		return HttpStatus.ACCEPTED;
 	}
 	 
+	/**
+	 * Mapping with select by user Id method.
+	 * @param id    Passing user Id as a parameter.
+	 * @return      Return the specific user profile.
+	 */
 	//select profile by ID
 	@GetMapping("/selectProfileByID/{id}.do")
 	public ResponseEntity<Profile> selectById(@PathVariable("id") int id){
 		Profile profile = proDao.selectById(id);
 		return ResponseEntity.ok().body(profile);
 	}
-	
-	//update profile
-//	@PutMapping("/updateProfile/{id}")
-//	public ResponseEntity<String> update(@PathVariable int id, @RequestBody Profile profile) {
-//		System.out.println("Updating profile: " + profile.toString());
-//		proDao.update(id, profile);
-//		return ResponseEntity.ok().body("Profile updated");
-//	}
 	
 	@PutMapping("/updateProfile/{id}")
 	public Profile updateAndReturn(@PathVariable int id, @RequestBody Profile profile) {

@@ -13,6 +13,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Sam, Lucnel, Niroj, Jimmy
+ * 
+ * Post class is the model class responsible for creating table named POST which contains five fields.Such as,
+ * Post_ID, User_ID, Post_Title,Post_Body and Num_Likes.
+ * Post_ID is the primary key in this table and it is generating automatically.
+ * 
+ * This class has ManyToOne relationship and The using  @JoinColumn, 
+ * annotation helps us specify the column we'll use for joining an entity association or element collection.
+ * 
+ *Setters and Getters have been used for update and retrieve values .
+ */
 
 @Entity
 @Table(name = "POST")
@@ -97,12 +110,24 @@ public class Post {
 		this.profiles = profiles;
 	}
 
+	/**
+	 *  toString method to return the retrieved data.
+	 */
 	@Override
 	public String toString() {
 		return "Post [postId=" + postId + ", userId=" + userId + ", postTitle=" + postTitle + ", postBody=" + postBody
 				+ ", numLikes=" + numLikes + ", profiles=" + profiles + "]";
 	}
 
+	/**
+	 * Constructs and initializes a post.
+	 * @param postId  Id of the post.
+	 * @param userId  Id of the post creator.
+	 * @param postTitle  Title of the post.
+	 * @param postBody   Actual post written by user.
+	 * @param numLikes   The number of likes received by other users.
+	 * @param profiles   The other users profile who liked the post.
+	 */
 	public Post(int postId, int userId, String postTitle, String postBody, int numLikes, List<Profile> profiles) {
 		super();
 		this.postId = postId;
@@ -113,6 +138,14 @@ public class Post {
 		this.profiles = profiles;
 	}
 
+	/**
+	 * Constructs and initializes a post.
+	 * @param postId   Id of the post.
+	 * @param userId   Id of the post creator.
+	 * @param postTitle  Title of the post.
+	 * @param postBody   Actual post written by user.
+	 * @param numLikes   The number of likes received by other users.
+	 */
 	public Post(int postId, int userId, String postTitle, String postBody, int numLikes) {
 		super();
 		this.postId = postId;
