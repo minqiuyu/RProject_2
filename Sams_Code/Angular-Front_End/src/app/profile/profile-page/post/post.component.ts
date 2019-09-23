@@ -4,6 +4,7 @@ import { AuthService } from '../../auth.service';
 import { FetchProfileService } from 'src/app/fetch-profile.service';
 import { Router } from '@angular/router';
 import { SelectService } from 'src/app/select.service';
+import { S3Service } from 'src/app/s3.service';
 
 @Component({
   selector: 'app-post',
@@ -14,10 +15,11 @@ export class PostComponent implements OnInit {
   @Input() post: any;
   isYourPost: boolean =false;
   postAuthor: string;
+  image;
   constructor(
     private fetchServ: FetchProfileService,
     private postServ: PostService, private authServ: AuthService,
-    private selectServ: SelectService,
+    private selectServ: SelectService, private S3Serv: S3Service,
     private router: Router) { }
 
   ngOnInit() {
@@ -27,6 +29,13 @@ export class PostComponent implements OnInit {
 
     this.fetchServ.fetchProfileById(this.post.userId).subscribe((author)=>{
       this.postAuthor=author.userName;
+    })
+
+    this.S3Serv.getImage(this.post.postTitle).subscribe((data)=>{
+      console.log(data)
+    },(error)=>{
+      this.image = error.error.text;
+      console.log(this.image);
     })
   }
 

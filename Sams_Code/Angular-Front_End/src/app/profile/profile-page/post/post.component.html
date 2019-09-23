@@ -1,5 +1,5 @@
 <br>
-
+<!-- image experiment -->
 <div class="card text-center">
     <div class="card-header">
       <div *ngIf="isYourPost"> You </div>
@@ -11,6 +11,10 @@
       <div id="post-body" class="card-text">
 
         <p>{{post.postBody}}</p>
+        <div *ngIf="image!=undefined">
+          <img style="width:240px; height: 200;" [src]="image" alt="">
+
+        </div>
 
       </div>
 

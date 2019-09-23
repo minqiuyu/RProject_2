@@ -17,6 +17,7 @@ export class NewPostComponent implements OnInit {
   newPostForm: FormGroup;
   MediumEditor: any;
   myProfile: any;
+  filename: string;
   constructor(private postServ: PostService, private auth: AuthService) { }
   
   ngOnInit() {
@@ -35,5 +36,14 @@ export class NewPostComponent implements OnInit {
       console.log("Ruh roh " + JSON.stringify(error));
     })
     this.newPostForm.reset();
+  }
+
+  
+  async uploadFile(event: any) {
+    const file = event.target.files[0];
+    this.filename = file.name;
+    const urlResponse = await fetch('http://localhost:9005/SpringMVCPractice/s3/' + file.name, { method: 'PUT' });
+    const signedUrl = await urlResponse.text();
+    const s3Response = await fetch(signedUrl, { method: 'PUT', body: file });
   }
 }
