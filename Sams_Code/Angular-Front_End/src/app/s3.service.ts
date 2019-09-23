@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class S3Service {
   downloadImage: any;
   // uploadImage: any;
+  // filename: string;
   constructor(private http: HttpClient) { }
 
   putImage(imageName:string, payload){
@@ -17,4 +18,12 @@ export class S3Service {
 
 
   }
+
+  // async uploadFile(event: any) {
+  //   const file = event.target.files[0];
+  //   this.filename = file.name;
+  //   const urlResponse = await fetch('http://localhost:9005/P2FB_Application/s3/' + file.name, { method: 'PUT' });
+  //   const signedUrl = await urlResponse.text();
+  //   const s3Response = await fetch(signedUrl, { method: 'PUT', body: file });
+  // }
 }

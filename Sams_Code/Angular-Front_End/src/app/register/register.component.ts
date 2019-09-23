@@ -13,6 +13,7 @@ import { S3Service } from '../s3.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   genders: string[] = ['male','female'];
+  filename: string;
 
   constructor(private profileServ: ProfilesService, private crypter: CryptoService,
    private S3Serv: S3Service) { }
@@ -55,5 +56,14 @@ export class RegisterComponent implements OnInit {
   onAddHobby(){
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.registerForm.get('hobbies')).push(control);
+  }
+
+
+  async uploadFile(event: any) {
+    const file = event.target.files[0];
+    this.filename = file.name;
+    const urlResponse = await fetch('http://localhost:9005/SpringMVCPractice/s3/' + file.name, { method: 'PUT' });
+    const signedUrl = await urlResponse.text();
+    const s3Response = await fetch(signedUrl, { method: 'PUT', body: file });
   }
 }
